@@ -17,7 +17,7 @@ function Main() {
           lg:gap-1 lg:justify-start lg:p-10 
         "
           data-aos-duration="500"
-          data-aos="fade-left"
+          data-aos="fade-up"
         >
           <span class="text-2xl text-white font-bold sm:text-5xl lg:text-5xl">
             دنیای NFT های
@@ -32,7 +32,7 @@ function Main() {
             src="img/header_img.png"
             class="relative"
             alt=""
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-duration="500"
           />
           <div
@@ -40,7 +40,7 @@ function Main() {
             md:bottom-36
           lg:bottom-32 lg:right-auto lg:ml-32 lg:w-1/6 
           "
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-duration="500"
           >
             <img src="img/Group 117.png" alt="" />
@@ -56,7 +56,7 @@ function Main() {
         <p
           class="text-gray-500 tracking-wider m-1 sm:text-xl text-center sm:font-bold sm:m-1 sm:-mt-24"
           data-aos-duration="500"
-          data-aos="fade-right"
+          data-aos="fade-up"
         >
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
           از طراحان گرافیک است
