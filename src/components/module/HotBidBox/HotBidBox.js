@@ -2,7 +2,11 @@ import React from "react";
 
 function HotBidBox({ title, creator, img }) {
   return (
-    <div class="p-4  w-full sm:w-1/2 md:1/3 md:w-1/3">
+    <div
+      class="p-4  w-full sm:w-1/2 md:1/3 md:w-1/3"
+      data-aos="zoom-in-down"
+      data-aos-duration="500"
+    >
       <div className="p-3 w-full bg-gray-custom rounded-3xl flex flex-col">
         <div class=" flex justify-end relative">
           <img src={img} alt="" class="rounded-4 w-full" />
