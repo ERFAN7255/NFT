@@ -2,7 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="mt-5 p-2 lg:p-5 footer py-10">
+    <footer
+      class="mt-5 p-2 lg:p-5 footer py-10"
+      data-aos="fade-up"
+      data-aos-duration="500"
+    >
       <div class="relative ">
         <div class="flex relative flex-col p-4 gap-5 md:flex-row md:items-start">
           <div class="w-full md:w-2/3">
