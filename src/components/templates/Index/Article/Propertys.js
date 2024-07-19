@@ -7,7 +7,7 @@ function Propertys() {
       <SectionProperty>
         <div
           class={`bg-green-950 border-green-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-duration="500"
         >
           <div class="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
@@ -35,7 +35,7 @@ function Propertys() {
       <SectionProperty>
         <div
           class={`bg-blue-950 border-blue-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-duration="500"
         >
           <div class="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
@@ -67,7 +67,7 @@ function Propertys() {
       <SectionProperty>
         <div
           class={`bg-red-950 border-red-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-duration="500"
         >
           <div class="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">

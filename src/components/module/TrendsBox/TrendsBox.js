@@ -6,7 +6,7 @@ function TrendsBox({ img, creator }) {
     <div
       class="w-full sm:w-1/2 md:w-1/3"
       data-aos="fade-up"
-      // data-aos-duration="500"
+      data-aos-duration="500"
     >
       <div class="box_trends flex flex-col justify-center items-center p-4">
         <div class="text-center items-center relative">
