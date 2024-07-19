@@ -127,3 +127,22 @@ header::after {
   );
   height: 324px;
 }
+
+.footer {
+  background-color: #091028;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon_footer_link {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+}
+.icon_footer_instagram {
+  background: linear-gradient(
+    90deg,
+    #9a5bff 0%,
+    #ff1212 53.12%,
+    #ff7f56 100%
+  ) !important;
+}

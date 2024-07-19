@@ -7,6 +7,7 @@ import Trends from "./Trends";
 import Propertys from "./Propertys";
 import TopCreators from "./TopCreators";
 import NewsLetters from "./NewsLetters";
+import Footer from "@/components/module/Footer/Footer";
 
 function Article() {
   return (
@@ -37,6 +38,7 @@ function Article() {
       />
       <TopCreators />
       <NewsLetters />
+      <Footer />
     </div>
   );
 }
