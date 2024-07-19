@@ -2,7 +2,7 @@ import React from "react";
 
 function TitleBar({ titleFA, titleEN, icon }) {
   return (
-    <div class="flex items-center justify-between my-10" data-aos="fade-left">
+    <div class="flex items-center justify-between my-10" data-aos="fade-up">
       <div class="flex gap-2 flex-1 items-center p-2 gap-x-4">
         <div class="bg-gradient-to-r from-purple-700 to-orange-700 p-2 rounded-full">
           <img className="w-10 md:w-16 p-2 sm:p-4" src={icon} alt="Wallet" />
