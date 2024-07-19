@@ -8,7 +8,7 @@ function Footer() {
           <div class="w-full md:w-2/3">
             <ul className="">
               <li>
-                <h4 class="text-white text-center md:text-start lg:text-start font-bold mb-8 text-2xl md:text-xl 2xl:text-4xl">
+                <h4 class="text-white text-center md:text-start lg:text-start font-bold mb-8 text-2xl md:text-xl 2xl:text-3xl">
                   Iran NFT
                 </h4>
               </li>
@@ -24,7 +24,7 @@ function Footer() {
           <div class="w-full lg:w-1/4">
             <ul class="my-5 md:my-0 flex flex-col gap-10">
               <li>
-                <h4 class="text-white text-center lg:text-start font-bold mb-4 md:text-xl 2xl:text-4xl">
+                <h4 class="text-white text-center lg:text-start font-bold mb-4 md:text-xl 2xl:text-2xl">
                   به ما بپیوندید
                 </h4>
               </li>
@@ -110,7 +110,7 @@ function Footer() {
             <div class="w-1/2 flex flex-col items-center">
               <ul className="flex flex-col">
                 <li>
-                  <h4 class="text-white font-bold mb-4 md:text-xl md:text-nowrap 2xl:text-4xl 2xl:mb-10">
+                  <h4 class="text-white font-bold mb-4 md:text-xl md:text-nowrap 2xl:text-2xl 2xl:mb-10">
                     دسترسی سریع
                   </h4>
                 </li>
@@ -143,7 +143,7 @@ function Footer() {
             <div class="w-1/2 md:w-1/4 flex flex-col items-center">
               <ul className="">
                 <li>
-                  <h4 class="text-white font-bold fs-4 mb-4 md:text-xl text-nowrap 2xl:text-4xl 2xl:mb-10">
+                  <h4 class="text-white font-bold fs-4 mb-4 md:text-xl text-nowrap 2xl:text-2xl 2xl:mb-10">
                     حساب من
                   </h4>
                 </li>
@@ -158,7 +158,7 @@ function Footer() {
                 <li>
                   <a
                     href=""
-                    class="text-white fw-medium mb-3 block 2xl:text-xl"
+                    class="text-white fw-medium mb-3 block 2xl:text-xl 2xl:text-nowrap"
                   >
                     ان اف تی های شما
                   </a>
