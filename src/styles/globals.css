@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid #fff; */
+}
+
+:root {
+  --color_07101D: #07101d;
+  --color_FF3C00: #ff3c00;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: kalameh;
+  background-color: var(--color_07101D);
+}
+
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb-Black.woff")
+    format("woff");
+}
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb-Bold.woff")
+    format("woff");
+}
+
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb-Regular.woff")
+    format("woff");
+}
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb-Thin.woff")
+    format("woff");
+}
+
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb\(FaNum\)-Black.woff")
+    format("woff");
+}
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb\(FaNum\)-Bold.woff")
+    format("woff");
+}
+@font-face {
+  font-family: kalameh;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../public/font/WebFonts/_Woff/KalamehWeb\(FaNum\)-Regular.woff")
+    format("woff");
+}
+@font-face {
+  font-family: Gilroy_Bold;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../../public/font/WebFonts/_Woff/Gilroy-Bold.woff") format("woff");
+}
+
+header::before {
+  content: "";
+  width: 904px;
+  height: 876px;
+  background-image: radial-gradient(#3d0d58 38%, #070f1c 0);
+  position: absolute;
+  filter: blur(74px);
+  opacity: 0.4;
+  right: -274px;
+  top: -273px;
+  z-index: -1;
+}
+header::after {
+  content: "";
+  background-image: url("./../../public/img/image 1.png");
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.bg-gray-custom {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-1 {
+  border: 1px white solid;
+}
+
+.section_news_letters {
+  background: linear-gradient(
+    90deg,
+    #a50e86 0.16%,
+    #c10b70 24.02%,
+    #e83947 38.73%,
+    #df330d 55.88%,
+    #c55212 81.05%,
+    #d37506 100%
+  );
+  height: 324px;
+}
