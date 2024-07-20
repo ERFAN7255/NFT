@@ -10,7 +10,11 @@ function Header() {
     <>
       <div className="flex flex-row justify-between items-center p-5 lg:justify-evenly lg:p-10 relative">
         {isShowModal ? (
-          <button className="md:hidden" onClick={() => setIsShowModal(false)}>
+          <button
+            className="md:hidden animate-bounce"
+            onClick={() => setIsShowModal(false)}
+            data-aos="fade-down"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -28,7 +32,7 @@ function Header() {
           </button>
         ) : (
           <button
-            className="md:hidden"
+            className="md:hidden animate-pulse"
             data-aos="fade-down"
             onClick={() => setIsShowModal(true)}
           >
@@ -79,16 +83,42 @@ function Header() {
 
         <div class="flex items-center md:hidden">
           <a href="#" class="me-3">
-            <img src="img/search.png" alt="" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="white"
+              className="size-7"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
           </a>
           <a href="#">
-            <img src="img/user.png" alt="" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="white"
+              className="size-7"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+              />
+            </svg>
           </a>
         </div>
       </div>
       {isShowModal && (
         <div
-          class="md:hidden bg-gray-custom rounded-xl  p-2 top-16 flex flex-col gap-5 transition-all ease-linear duration-200 m-5"
+          class="md:hidden bg-gray-custom rounded-xl  p-2 top-16 flex flex-col gap-5 transition-all ease-linear duration-200 m-3"
           data-aos="fade-down"
           id="navbarNav"
         >
