@@ -6,7 +6,7 @@ function Main() {
       className="flex flex-col justify-center items-center gap-20 mt-3 p-3
     "
     >
-      <p class="text-gray-400 tracking-wider sm:text-xl  lg:relative lg:left-96">
+      <p class="text-gray-400 tracking-wider sm:text-xl  lg:relative md:left-96">
         بازار جهانی توکن‌های غیرمثلی بر بستر بلاکچین پلیگان
       </p>
       {/* lg: */}
@@ -19,10 +19,10 @@ function Main() {
           data-aos-duration="500"
           data-aos="fade-up"
         >
-          <span class="text-2xl text-white font-bold sm:text-5xl lg:text-5xl">
+          <span class="text-2xl text-white font-bold sm:text-5xl lg:text-5xl lg:text-nowrap">
             دنیای NFT های
           </span>
-          <span class="text-2xl text-orange-600 font-bold sm:text-6xl lg:text-5xl">
+          <span class="text-2xl text-orange-600 font-bold sm:text-6xl lg:text-5xl lg:text-nowrap">
             شگفت انگیز
           </span>
         </h1>
@@ -54,7 +54,7 @@ function Main() {
 
       <div className="flex justify-center items-center flex-col gap-10 lg:w-1/2 lg:absolute mt-20 sm:mt-5 lg:mt-48 lg:right-16 lg:gap-20 ">
         <p
-          class="text-gray-500 tracking-wider m-1 sm:text-xl text-center sm:font-bold sm:m-1 sm:-mt-24"
+          class="text-gray-500 tracking-wider m-1 sm:text-xl text-center sm:font-bold sm:m-1 sm:-mt-24 lg:hidden xl:block"
           data-aos-duration="500"
           data-aos="fade-up"
         >
@@ -77,7 +77,7 @@ function Main() {
             />
           </div>
           <button
-            className="bg-gradient-to-r from-purple-700 to-orange-700 p-4 rounded-lg text-white font-bold sm:px-20 sm:text-xl sm:-mt-5 lg:rounded-full"
+            className="bg-gradient-to-r from-purple-700 to-orange-700 p-4 rounded-lg text-white font-bold sm:px-20 sm:text-xl sm:-mt-5 lg:rounded-full lg:text-nowrap"
             data-aos="fade-up"
             data-aos-duration="500"
           >
