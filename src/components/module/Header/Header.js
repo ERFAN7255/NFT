@@ -68,8 +68,11 @@ function Header() {
             </li>
           </ul>
           <div className="flex items-center gap-3">
-            <a href="#">
-              <img src="img/shoppingcart.png" alt="" />
+            <a href="#" className="animate-bounce">
+              <img src="img/shoppingcart.png" alt="" className="relative" />
+              <span className="absolute -top-3 -right-2 bg-red-600 flex items-center justify-center text-center w-4 h-4 rounded-full text-white p-3">
+                0
+              </span>
             </a>
             <a
               href="#"
