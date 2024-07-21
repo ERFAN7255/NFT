@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import Header from "@/components/module/Header/Header";
 import Footer from "@/components/module/Footer/Footer";
@@ -46,27 +47,25 @@ function page() {
                 type="text"
                 name="txt"
                 placeholder="نام کاربری"
-                required=""
                 minLength={2}
                 maxLength={14}
-                required="true"
+                required={true}
               />
               <input
                 class="input"
                 type="text"
                 name="txt"
                 placeholder="نام و نام خانوداگی"
-                required=""
                 minLength={2}
                 maxLength={20}
-                required="true"
+                required={true}
               />
               <input
                 class="input"
                 type="email"
                 name="email"
                 placeholder="ایمیل"
-                required="true"
+                required={true}
               />
               <input
                 class="input"
@@ -75,7 +74,7 @@ function page() {
                 placeholder="رمز عبور"
                 minLength={2}
                 maxLength={18}
-                required="true"
+                required={true}
               />
               <button>ثبت نام</button>
             </form>
