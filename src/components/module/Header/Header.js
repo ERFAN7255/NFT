@@ -48,9 +48,9 @@ function Header() {
         <div class="hidden md:flex  justify-between gap-24 lg:gap-10 xl:gap-40 h-15 items-center">
           <ul class="flex gap-5  lg:gap-10">
             <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
-              <a href="#" class="">
+              <Link href="/" class="">
                 صفحه اصلی
-              </a>
+              </Link>
             </li>
             <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
               <a href="#" class="">
@@ -75,13 +75,13 @@ function Header() {
                 0
               </span>
             </a>
-            <a
-              href="#"
+            <Link
+              href="/login-register"
               class="flex justify-between bg-orange-500 p-2 text-xs lg:text-sm lg:p-4 rounded gap-1 font-bold text-white items-center animate-pulse"
             >
               <img src="img/user.png" alt="" />
               ورود / ثبت نام
-            </a>
+            </Link>
           </div>
         </div>
 

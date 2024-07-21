@@ -7,7 +7,7 @@ function page() {
     <>
       <Header />
       <div className="p-4 flex justify-center">
-        <div class="main mt-7 w-96">
+        <div class="main my-7 w-96">
           <input type="checkbox" id="chk" aria-hidden="true" />
 
           <div class="login">
