@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { TiHomeOutline } from "react-icons/ti";
 
@@ -76,7 +77,7 @@ function Header() {
             </a>
             <a
               href="#"
-              class="flex justify-between bg-orange-500 p-2 text-xs lg:text-sm lg:p-4 rounded gap-1 font-bold text-white items-center"
+              class="flex justify-between bg-orange-500 p-2 text-xs lg:text-sm lg:p-4 rounded gap-1 font-bold text-white items-center animate-pulse"
             >
               <img src="img/user.png" alt="" />
               ورود / ثبت نام
@@ -151,8 +152,8 @@ function Header() {
               </li>
             ) : (
               <li class="">
-                <a
-                  href="#"
+                <Link
+                  href="/login-register"
                   class="flex gap-3 items-center font-bold text-green-500 animate-pulse"
                 >
                   <svg
@@ -170,13 +171,13 @@ function Header() {
                     />
                   </svg>
                   ورود / ثبت نام
-                </a>
+                </Link>
               </li>
             )}
 
             <li class="flex gap-3 items-center">
-              <a
-                href="#"
+              <Link
+                href="/"
                 class="flex gap-3 items-center text-blue-600 font-bold"
               >
                 <svg
@@ -194,7 +195,7 @@ function Header() {
                   />
                 </svg>
                 صفحه اصلی
-              </a>
+              </Link>
             </li>
 
             {/* start LogOut */}
