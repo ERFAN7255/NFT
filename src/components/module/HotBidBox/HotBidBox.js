@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function HotBidBox({ title, creator, img }) {
@@ -45,12 +46,12 @@ function HotBidBox({ title, creator, img }) {
             </div>
           </div>
           <div class="mt-4">
-            <a
-              href="#"
+            <Link
+              href="/productDetails/2"
               class="bg-gradient-to-r from-purple-700 to-orange-700 text-center py-2 px-4  font-bold rounded-2xl block text-white"
             >
               پیشنهاد سریع
-            </a>
+            </Link>
           </div>
         </div>
       </div>
