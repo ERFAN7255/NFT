@@ -3,7 +3,7 @@ import React from "react";
 function page() {
   return (
     <>
-      <h1 className="text-white mt-5 mr-5 mb-2">
+      <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">
         عرفان نبوره عزیز؛ خوش اومدی 🙌
       </h1>
       <div className="p-6 xl:px-40">

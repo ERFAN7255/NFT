@@ -138,7 +138,7 @@ function Navbar() {
       {/* MD : */}
 
       <div
-        className={`hidden md:block md:relative bg-blue-950 w-3/5 h-auto md:w-1/3 xl:w-1/5`}
+        className={`hidden md:block bg-blue-950 w-3/5 md:w-1/3 xl:w-1/5`}
         data-aos="fade-left"
       >
         <div className="flex justify-center gap-4 items-center pt-5 lg:gap-6">
