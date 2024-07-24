@@ -12,6 +12,9 @@ function page({ children }) {
         <Navbar />
         <div className="md:flex md:flex-col md:w-2/3 xl:w-4/5">
           <Header />
+          <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">
+            عرفان نبوره عزیز؛ خوش اومدی 🙌
+          </h1>
           {children}
         </div>
       </div>
