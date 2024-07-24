@@ -119,6 +119,11 @@ header::after {
   border: 1px white solid;
 }
 
+.btn-danger {
+  background-color: red;
+  border-radius: 5px;
+}
+
 .section_news_letters {
   background: linear-gradient(
     90deg,
@@ -259,3 +264,9 @@ label {
 /* not found page */
 
 /* End not found page */
+
+/* swal */
+.swal-footer {
+  display: flex;
+  justify-content: center;
+}

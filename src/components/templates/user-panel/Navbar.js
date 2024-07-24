@@ -14,6 +14,7 @@ function Navbar() {
 
   return (
     <>
+      {/* Mobile size: */}
       {isShowNavbar && (
         <div
           className={`bg-blue-950 w-3/5 fixed h-screen z-50 top-0 bottom-0`}
@@ -53,7 +54,10 @@ function Navbar() {
                 </svg>
                 پیشخوان
               </li>
-              <li className="flex gap-2 p-2 justify-between rounded-xl text-white">
+              <Link
+                href={"/my-account/orders"}
+                className="flex gap-2 p-2 justify-between rounded-xl text-white"
+              >
                 <div className="flex gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -74,9 +78,9 @@ function Navbar() {
                 <span className=" bg-red-600 flex items-center justify-center text-center w-4 h-4 rounded-full text-white p-3">
                   0
                 </span>
-              </li>
+              </Link>
               <Link
-                href={"/user-panel/UserDetails"}
+                href={"/my-account/profile"}
                 className="flex gap-2 p-2 rounded-xl text-white bg-purple-600"
               >
                 <svg
@@ -136,9 +140,8 @@ function Navbar() {
       )}
 
       {/* MD : */}
-
       <div
-        className={`hidden md:block bg-blue-950 w-3/5 md:w-1/3 xl:w-1/5`}
+        className={`hidden md:block bg-blue-950 w-3/5 md:w-1/3 xl:w-1/5 fixed h-screen`}
         data-aos="fade-left"
       >
         <div className="flex justify-center gap-4 items-center pt-5 lg:gap-6">
@@ -170,7 +173,10 @@ function Navbar() {
               </svg>
               پیشخوان
             </li>
-            <li className="flex gap-2 p-2 justify-between rounded-xl text-white">
+            <Link
+              href={"/my-account/orders"}
+              className="flex gap-2 p-2 justify-between rounded-xl text-white"
+            >
               <div className="flex gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -191,9 +197,9 @@ function Navbar() {
               <span className=" bg-red-600 flex items-center justify-center text-center w-4 h-4 rounded-full text-white p-3">
                 0
               </span>
-            </li>
+            </Link>
             <Link
-              href={"/user-panel/UserDetails"}
+              href={"/my-account/profile"}
               className="flex gap-2 p-2 rounded-xl bg-purple-600 text-white"
             >
               <svg
