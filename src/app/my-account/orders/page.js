@@ -9,7 +9,7 @@ function page() {
       <table className="border-2 border-black">
         <thead>
           <tr>
-            <th className="border-2 lg:text-xl xl:text-2xl border-purple-600  text-center text-orange-500">
+            <th className="border-2 lg:text-xl xl:text-2xl border-purple-600 text-center text-orange-500">
               عکس
             </th>
             <th className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-4 md:p-6 text-center text-blue-200">
@@ -25,7 +25,7 @@ function page() {
         </thead>
         <tbody>
           <tr>
-            <td className="border-2  border-purple-600 p-2 md:p-6">
+            <td className="border-2  border-purple-600 p-2 md:p-2">
               <Image
                 src="/img/image 5 (3).png"
                 width={200}
