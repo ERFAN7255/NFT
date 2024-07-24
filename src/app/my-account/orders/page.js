@@ -9,7 +9,7 @@ function page() {
       <table className="border-2 border-black">
         <thead>
           <tr>
-            <th className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-4 md:p-6 text-center text-orange-500">
+            <th className="border-2 lg:text-xl xl:text-2xl border-purple-600  text-center text-orange-500">
               عکس
             </th>
             <th className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-4 md:p-6 text-center text-blue-200">
@@ -25,12 +25,12 @@ function page() {
         </thead>
         <tbody>
           <tr>
-            <td className="border-2 border-purple-600 p-2 md:py-6 text-center text-blue-400 flex justify-center items-center">
+            <td className="border-2  border-purple-600 p-2 md:p-6">
               <Image
                 src="/img/image 5 (3).png"
                 width={200}
                 height={200}
-                className="w-20 md:w-36"
+                className="w-20 m-auto md:w-36"
                 alt=""
               />
             </td>
@@ -68,7 +68,7 @@ function page() {
               buttons: "نه ببخشید مزاحم شدم 😔",
             })
           }
-          className="icon_footer_instagram px-4 w-1/2 md:w-3/5 lg:w-2/5 2xl:w-1/5 p-4 rounded-2xl text-white animate-pulse"
+          className="icon_footer_instagram px-4 w-1/2 text-nowrap md:w-3/5 lg:w-2/5 2xl:w-1/5 p-4 rounded-2xl text-white animate-pulse"
         >
           نهایی کردن سفارشات
         </button>
