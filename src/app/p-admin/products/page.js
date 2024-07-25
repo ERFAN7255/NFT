@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import swal from "sweetalert";
 
 function page() {
   return (
@@ -57,27 +56,6 @@ function page() {
           </tr>
         </tbody>
       </table>
-
-      {/* Button */}
-      <div className="flex justify-center items-center py-10">
-        <button
-          onClick={() =>
-            swal({
-              title: "آخه تو پول داری بدبخت؟",
-              icon: "warning",
-              buttons: "نه ببخشید مزاحم شدم 😔",
-            })
-          }
-          className="icon_footer_instagram px-4 w-1/2 text-nowrap md:w-3/5 lg:w-2/5 2xl:w-1/5 p-4 rounded-2xl text-white animate-pulse"
-        >
-          نهایی کردن سفارشات
-        </button>
-      </div>
-
-      {/* no product */}
-      {/* <div className="flex justify-center items-center bg-yellow-600 p-4 rounded-xl border-4 border-yellow-300">
-        محصولی در سبد خرید شما موجود نمیباشد !!
-      </div> */}
     </div>
   );
 }
