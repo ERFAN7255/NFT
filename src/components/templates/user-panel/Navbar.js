@@ -39,7 +39,7 @@ function Navbar() {
             <ul className="flex flex-col gap-6 p-4">
               <Link
                 href={"/my-account"}
-                className="flex gap-2 p-2 rounded-xl text-white"
+                className="flex gap-2 p-2 rounded-xl text-white bg-purple-600"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ function Navbar() {
               </Link>
               <Link
                 href={"/my-account/profile"}
-                className="flex gap-2 p-2 rounded-xl text-white bg-purple-600"
+                className="flex gap-2 p-2 rounded-xl text-white "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@ function Navbar() {
           <ul className="flex flex-col gap-6 p-4">
             <Link
               href={"/my-account"}
-              className="flex gap-2 p-2 rounded-xl text-white"
+              className="flex gap-2 p-2 rounded-xl text-white bg-purple-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -206,7 +206,7 @@ function Navbar() {
             </Link>
             <Link
               href={"/my-account/profile"}
-              className="flex gap-2 p-2 rounded-xl bg-purple-600 text-white"
+              className="flex gap-2 p-2 rounded-xl text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
