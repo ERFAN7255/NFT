@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import ProductModel from './Product'
 
 const schema = new mongoose.Schema(
   {
@@ -25,6 +26,10 @@ const schema = new mongoose.Schema(
     role: {
       type: String,
       default: "USER",
+    },
+    productID: {
+      type: mongoose.Types.ObjectId,
+      ref: "Product",
     },
   },
   {
