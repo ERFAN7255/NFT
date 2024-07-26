@@ -58,6 +58,7 @@ function Header() {
           Iran NFT
         </a>
 
+        {/* MD: */}
         <div class="hidden md:flex  justify-between gap-24 lg:gap-10 xl:gap-40 h-15 items-center">
           <ul class="flex gap-5  lg:gap-10">
             <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
@@ -111,6 +112,7 @@ function Header() {
           </div>
         </div>
 
+        {/* Mobile: */}
         <div class="flex items-center md:hidden">
           <a href="#" class="me-3">
             <svg
@@ -146,7 +148,7 @@ function Header() {
           </Link>
         </div>
       </div>
-        
+
       {isShowModal && (
         <div
           class="md:hidden bg-gray-custom rounded-xl  p-2 top-16 flex flex-col gap-5 transition-all ease-linear duration-200 m-3"
