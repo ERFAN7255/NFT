@@ -3,8 +3,16 @@ import Footer from "@/components/module/Footer/Footer";
 import Header from "@/components/module/Header/Header";
 import Image from "next/image";
 import React from "react";
+import ProductModel from "../../../../models/Product";
+import connectToDB from "../../../../configs/db";
+import AddToOrders from "@/components/templates/productDetails/AddToOrders";
 
-function page() {
+async function page({ params }) {
+  connectToDB();
+  const productID = params.id;
+  console.log(productID);
+
+  const product = await ProductModel.findOne({ _id: productID });
   return (
     <>
       <Header />
@@ -13,7 +21,7 @@ function page() {
         <div className="">
           <Image
             className="rounded-none w-full"
-            src={"/img/image 5 (3).png"}
+            src={product.img}
             width={500}
             height={500}
           />
@@ -39,7 +47,7 @@ function page() {
                 </svg>
                 <h1 className="text-red-600 lg:text-2xl">نام :</h1>
               </div>
-              <h1 className="text-red-600 lg:text-2xl">Angry Ape</h1>
+              <h1 className="text-red-600 lg:text-2xl">{product.name}</h1>
             </div>
             <div className="flex items-center w-1/2 sm:w-4/5 justify-between">
               <div className="flex gap-2 items-center">
@@ -80,14 +88,14 @@ function page() {
                 </svg>
                 <h1 className="text-green-500 lg:text-2xl">قیمت :</h1>
               </div>
-              <h1 className="text-green-500 lg:text-2xl">2,78 ETH</h1>
+              <h1 className="text-green-500 lg:text-2xl">
+                {product.price} ETH
+              </h1>
             </div>
           </div>
 
           <div className="flex animate-pulse justify-center w-full sm:w-4/5 lg:w-full xl:w-3/4">
-            <button className="icon_footer_instagram border-2 text-white p-4 w-1/2 sm:w-4/5 lg:w-1/2 rounded-xl transition-all duration-500 hover:w-full lg:text-xl">
-              افزودن به سبد خرید
-            </button>
+            <AddToOrders productID={product._id} />
             {/* you own this car */}
             <h1 className="hidden p-4 bg-purple-950 text-purple-200 text-center border-2 border-purple-500 w-1/2 sm:w-4/5 lg:w-1/2 rounded-xl transition-all duration-500 hover:w-full">
               در سبد خرید شما موجود است.

@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import { addOrder } from "@/Redux/Slices/userSlice";
+import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,7 +24,7 @@ function page() {
         {user.name} عزیز ؛ خوش اومدی 🙌
       </h1>
       <div className="w-full p-6 flex flex-col lg:flex-row lg:flex-wrap gap-5">
-        <div className="xl:w-1/4 bg-green-600 flex justify-start items-center gap-5 py-6 px-4 rounded-2xl">
+        <Link href={'/my-account/orders'} className="xl:w-1/4 bg-green-600 flex justify-start items-center gap-5 py-6 px-4 rounded-2xl">
           <div className="icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +45,7 @@ function page() {
             <h3 className=" text-white">سبد خرید</h3>
             <h3 className="text-2xl text-white">{user.orders?.length} محصول</h3>
           </div>
-        </div>
+        </Link>
         <div className="xl:w-1/4 bg-blue-500 flex justify-start items-center gap-5 py-6 px-4 rounded-2xl">
           <div className="icon">
             <svg

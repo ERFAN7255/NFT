@@ -9,6 +9,7 @@ import swal from "sweetalert";
 
 function page() {
   const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const router = useRouter();
 
@@ -17,7 +18,7 @@ function page() {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        console.log(data);
+        dispatch(addOrder(data));
       });
   }, [user.id]);
 
@@ -42,7 +43,7 @@ function page() {
               icon: "success",
               buttons: "تایید",
             }).then(() => {
-              router.prefetch();
+              router.refresh();
             });
           }
         });
