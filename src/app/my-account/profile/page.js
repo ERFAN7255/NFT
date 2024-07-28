@@ -1,10 +1,16 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 function page() {
   const user = useSelector((state) => state.user.user);
+  const [phone, setPhone] = useState(user.phone);
+  const [name, setName] = useState(user.name);
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+
+  console.log(user);
 
   return (
     <>
@@ -23,8 +29,9 @@ function page() {
               </h1>
               <input
                 type="text"
-                defaultValue={"09052083383"}
                 className="bg-gray-600 rounded-xl p-2 text-white text-end overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
+                defaultValue={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
             <div className="w-full flex flex-col gap-3 mb-4">
@@ -33,8 +40,9 @@ function page() {
               </h1>
               <input
                 type="text"
-                defaultValue={"عرفان نبوره"}
                 className="bg-gray-600 rounded-xl p-2 text-white text-start overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
+                defaultValue={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="w-full flex flex-col gap-3 mb-4">
@@ -43,8 +51,9 @@ function page() {
               </h1>
               <input
                 type="text"
-                defaultValue={"ERFAN725"}
                 className="bg-gray-600 rounded-xl p-2 text-white text-start overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
+                defaultValue={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="w-full flex flex-col gap-3 mb-4">
@@ -53,8 +62,9 @@ function page() {
               </h1>
               <input
                 type="email"
-                defaultValue={"naboureh.1385@gmail.com"}
                 className="bg-gray-600 rounded-xl p-2 text-white text-start overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
+                defaultValue={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <button className="bg-purple-700 py-3 text-xl rounded-xl w-full text-white">

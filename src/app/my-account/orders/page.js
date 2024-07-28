@@ -1,14 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
 function page() {
+  const user = useSelector((state) => state.user.user);
   
+
   return (
     <>
       <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">
-        عرفان نبوره عزیز؛ خوش اومدی 🙌
+        {user.name} عزیز ؛ خوش اومدی 🙌
       </h1>
       <div className="p-6 xl:px-40 w-full flex flex-col justify-center">
         <table className="border-2 border-black">

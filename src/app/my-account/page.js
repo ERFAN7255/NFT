@@ -1,29 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { me } from "@/Redux/Slices/userSlice";
-import { redirect, useRouter } from "next/navigation";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
 function page() {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
-  const router = useRouter();
-
-  const getUserInfo = async () => {
-    const res = await fetch("/api/auth/me");
-    if (res.status === 200) {
-      const data = await res.json();
-      dispatch(me(data));
-    } else {
-      router.replace("/login-register");
-    }
-  };
-
-  useEffect(() => {
-    getUserInfo();
-  }, [getUserInfo]);
 
   return (
     <>
