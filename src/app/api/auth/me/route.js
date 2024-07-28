@@ -12,11 +12,16 @@ export async function GET(req) {
     const tokenPayload = verifyAccessToken(token.value);
     if (tokenPayload) {
       user = await UserModel.findOne(
-        { email: tokenPayload.email },
+        {
+          $or: [
+            { username: tokenPayload.email },
+            { email: tokenPayload.email },
+          ],
+        },
         "-__v -password"
       );
     }
-    return Response.json(user);
+    return Response.json(user, { status: 200 });
   } else {
     return Response.json(
       { message: "Not Access !!", data: null },

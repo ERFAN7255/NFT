@@ -1,9 +1,49 @@
-/* eslint-disable react/jsx-no-duplicate-props */
-import React from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+import React, { useState } from "react";
 import Header from "@/components/module/Header/Header";
 import Footer from "@/components/module/Footer/Footer";
+import swal from "sweetalert";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 
 function page() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const login = async (e) => {
+    e.preventDefault();
+
+    const user = { email, username: email, password };
+
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (res.status === 422 || res.status === 401) {
+      swal({
+        title: "نام کاربری یا رمز عبور اشتباه میباشد !!",
+        icon: "error",
+        buttons: "تلاش مجدد",
+      });
+    }
+
+    if (res.status === 201) {
+      swal({
+        title: "با موفقیت وارد شدید",
+        icon: "success",
+        buttons: "ورود به پنل کاربری",
+      }).then(() => {
+        router.replace("/my-account");
+      });
+    }
+  };
+
   return (
     <>
       <Header />
@@ -23,6 +63,8 @@ function page() {
                 placeholder="ایمیل یا نام کاربری"
                 required={true}
                 minLength={2}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 class="input text-center"
@@ -32,8 +74,10 @@ function page() {
                 minLength={2}
                 maxLength={18}
                 required={true}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <button>ورود</button>
+              <button onClick={login}>ورود</button>
             </form>
           </div>
 

@@ -2,6 +2,7 @@ import React from "react";
 import "./../styles/globals.css";
 import AOSInit from "@/utils/aos";
 import { Metadata } from "next";
+import ReduxProvider from "@/Redux/Provider/ReduxProvider";
 
 // export const metadata = {
 //   title: "NFT by ERFAN",
@@ -18,14 +19,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" dir="rtl">
-      <head>
-        <link rel="shortcut icon" href="img/header_img.png" />
-      </head>
-      <body>
-        <AOSInit />
-        {children}
-      </body>
-    </html>
+    <ReduxProvider>
+      <html lang="en" dir="rtl">
+        <head>
+          <link rel="shortcut icon" href="img/header_img.png" />
+        </head>
+        <body>
+          <AOSInit />
+          {children}
+        </body>
+      </html>
+    </ReduxProvider>
   );
 }
