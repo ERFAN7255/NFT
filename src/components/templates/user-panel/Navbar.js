@@ -9,6 +9,7 @@ function Navbar() {
   const isShowNavbar = useSelector(
     (state) => state.isShowUserPanelNavbar.isShowNavbar
   );
+  const user = useSelector((state) => state.user.user);
 
   return (
     <>
@@ -199,7 +200,7 @@ function Navbar() {
                 سبد خرید
               </div>
               <span className=" bg-red-600 flex items-center justify-center text-center w-4 h-4 rounded-full text-white p-3">
-                0
+                {user.orders.length}
               </span>
             </Link>
             <Link

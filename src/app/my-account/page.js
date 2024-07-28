@@ -1,11 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import React from "react";
-import { useSelector } from "react-redux";
+import { addOrder } from "@/Redux/Slices/userSlice";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function page() {
   const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch(`/api/orders/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(addOrder(data));
+      });
+  }, [user.id]);
 
   return (
     <>
@@ -32,7 +42,7 @@ function page() {
           </div>
           <div className="text flex flex-col items-start gap-2">
             <h3 className=" text-white">سبد خرید</h3>
-            <h3 className="text-2xl text-white">6 محصول</h3>
+            <h3 className="text-2xl text-white">{user.orders?.length} محصول</h3>
           </div>
         </div>
         <div className="xl:w-1/4 bg-blue-500 flex justify-start items-center gap-5 py-6 px-4 rounded-2xl">

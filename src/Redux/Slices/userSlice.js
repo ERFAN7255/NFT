@@ -8,6 +8,7 @@ const initialState = {
     email: null,
     phone: null,
     role: null,
+    orders: [],
     isLogin: false,
   },
 };
@@ -25,6 +26,11 @@ const userSlice = createSlice({
       state.user.phone = action.payload.phone;
       state.user.role = action.payload.role;
     },
+    addOrder(state, action) {
+      if (action.payload.length) {
+        state.user.orders = [...action.payload];
+      }
+    },
     logout(state) {
       state.user.isLogin = false;
       state.user.name = null;
@@ -37,6 +43,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { me, logout } = userSlice.actions;
+export const { me, logout, addOrder } = userSlice.actions;
 
 export default userSlice.reducer;
