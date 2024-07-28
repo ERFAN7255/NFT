@@ -21,7 +21,7 @@ export async function POST(req) {
     const product = await ProductModel.create({
       name,
       price,
-      img: `http://localhost:3000/uploads/${filename}`,
+      img: `/uploads/${filename}`,
     });
 
     console.log("product =>", product);

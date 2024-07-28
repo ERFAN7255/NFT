@@ -1,13 +1,32 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
 function page() {
   const user = useSelector((state) => state.user.user);
-  
+  const [products, setProducts] = useState([]);
+  console.log(user.id);
+
+  // const getProducts = async () => {
+  //   const response = await fetch(`/api/orders/${user.id}`);
+  //   const data = await response.json();
+  //   setProducts(data);
+  //   console.log(data);
+  // };
+
+  useEffect(() => {
+    fetch(`/api/orders/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        console.log(data);
+      });
+  }, [user.id]);
+
+  console.log(products);
 
   return (
     <>
@@ -33,37 +52,41 @@ function page() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="border-2  border-purple-600 p-2 md:p-2">
-                <Image
-                  src="/img/image 5 (3).png"
-                  width={200}
-                  height={200}
-                  className="w-14 m-auto md:w-20"
-                  alt=""
-                />
-              </td>
-              <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-2 md:p-3 text-center text-blue-400">
-                Peter
-              </td>
-              <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 px-2 py-6 md:p-3 text-center text-green-400">
-                100,000 تومان
-              </td>
-              <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-0 text-center">
-                <button
-                  className="btn-danger text-white p-2 md:p-3 md:px-3 lg:px-5 lg:p-3"
-                  onClick={() =>
-                    swal({
-                      title: "صبر کن بچه جان سایت هنوز کامل نشده 🤨",
-                      icon: "warning",
-                      buttons: "چشم",
-                    })
-                  }
-                >
-                  حذف
-                </button>
-              </td>
-            </tr>
+            {products.map(({ product }) => (
+              <>
+                <tr>
+                  <td className="border-2  border-purple-600 p-2 md:p-2">
+                    <Image
+                      src={product.img}
+                      width={200}
+                      height={200}
+                      className="w-14 m-auto md:w-20"
+                      alt=""
+                    />
+                  </td>
+                  <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-2 md:p-3 text-center text-blue-400">
+                    {product.name}
+                  </td>
+                  <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 px-2 py-6 md:p-3 text-center text-green-400">
+                    {product.price} Eth
+                  </td>
+                  <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-0 text-center">
+                    <button
+                      className="btn-danger text-white p-2 md:p-3 md:px-3 lg:px-5 lg:p-3"
+                      onClick={() =>
+                        swal({
+                          title: "صبر کن بچه جان سایت هنوز کامل نشده 🤨",
+                          icon: "warning",
+                          buttons: "چشم",
+                        })
+                      }
+                    >
+                      حذف
+                    </button>
+                  </td>
+                </tr>
+              </>
+            ))}
           </tbody>
         </table>
 
