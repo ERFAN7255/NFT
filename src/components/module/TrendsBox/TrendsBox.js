@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
+import Link from "next/link";
 import React from "react";
 
-function TrendsBox({ img, creator }) {
+function TrendsBox({ img, creator, title, price, productID }) {
   return (
-    <div
+    <Link
+      href={`productDetails/${productID}`}
       class="w-full sm:w-1/2 md:w-1/3"
       data-aos="fade-up"
       data-aos-duration="500"
@@ -14,10 +16,10 @@ function TrendsBox({ img, creator }) {
         </div>
 
         <div class="bg-gray-custom w-full -mt-16 rounded-xl px-3 pb-8">
-          <h5 class="text-white pt-20 text-end 2xl:text-2xl">D'EVOLs</h5>
+          <h5 class="text-white pt-20 text-end 2xl:text-2xl">{title}</h5>
           <div class="text-white 2xl:text-2xl flex justify-between items-center mt-1">
             <div className="flex items-center gap-3">
-              <span>2,78 ETH</span>
+              <span>{price} ETH</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="21"
@@ -44,7 +46,7 @@ function TrendsBox({ img, creator }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

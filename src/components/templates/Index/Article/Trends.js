@@ -1,12 +1,23 @@
 import TrendsBox from "@/components/module/TrendsBox/TrendsBox";
 import React from "react";
+import ProductModel from "../../../../../models/Product";
 
-function Trends() {
+async function Trends() {
+  const products = await ProductModel.find({}, "-__v");
+
   return (
     <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-0">
-      <TrendsBox creator={"Mahsa"} img={"img/image 6.png"} />
-      <TrendsBox creator={"Amir"} img={"img/image 6 (2).png"} />
-      <TrendsBox creator={"Reza"} img={"img/image 6 (3).png"} />
+      {products.slice(3, 6).map((product) => (
+        <>
+          <TrendsBox
+            creator={"ERFAN"}
+            img={product.img}
+            title={product.name}
+            price={product.price}
+            productID={product._id}
+          />
+        </>
+      ))}
     </div>
   );
 }
