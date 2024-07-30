@@ -55,7 +55,7 @@ function notfound() {
         <defs>
           <filter id="glow">
             <fegaussianblur
-              class="blur"
+              className="blur"
               result="coloredBlur"
               stddeviation="4"
             ></fegaussianblur>

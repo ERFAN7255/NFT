@@ -115,16 +115,16 @@ function page() {
     <>
       <Header />
       <div className="p-4 flex justify-center">
-        <div class="main mt-0 mb-14 w-96" data-aos="zoom-in-up">
+        <div className="main mt-0 mb-14 w-96" data-aos="zoom-in-up">
           <input type="checkbox" id="chk" aria-hidden="true" />
 
-          <div class="login">
-            <form class="form">
+          <div className="login">
+            <form className="form">
               <label for="chk" aria-hidden="true" className="animate-bounce">
                 ورود
               </label>
               <input
-                class="input text-center"
+                className="input text-center"
                 type="text"
                 name="email"
                 placeholder="ایمیل یا نام کاربری"
@@ -134,7 +134,7 @@ function page() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                class="input text-center"
+                className="input text-center"
                 type="password"
                 name="password"
                 placeholder="رمز عبور"
@@ -148,13 +148,13 @@ function page() {
             </form>
           </div>
 
-          <div class="register mt-6">
-            <form class="form">
+          <div className="register mt-6">
+            <form className="form">
               <label for="chk" aria-hidden="true" className="animate-pulse">
                 ثبت نام
               </label>
               <input
-                class="input"
+                className="input"
                 type="text"
                 name="txt"
                 placeholder="نام کاربری"
@@ -165,7 +165,7 @@ function page() {
                 onChange={(e) => setUsernameRegister(e.target.value)}
               />
               <input
-                class="input"
+                className="input"
                 type="text"
                 name="txt"
                 placeholder="نام و نام خانوداگی"
@@ -176,7 +176,7 @@ function page() {
                 onChange={(e) => setNameRegister(e.target.value)}
               />
               <input
-                class="input"
+                className="input"
                 type="number"
                 name="phone"
                 placeholder="شماره تلفن"
@@ -187,7 +187,7 @@ function page() {
                 onChange={(e) => setPhoneRegister(e.target.value)}
               />
               <input
-                class="input"
+                className="input"
                 type="email"
                 name="email"
                 placeholder="ایمیل"
@@ -196,7 +196,7 @@ function page() {
                 onChange={(e) => setEmailRegister(e.target.value)}
               />
               <input
-                class="input"
+                className="input"
                 type="text"
                 name="pswd"
                 placeholder="رمز عبور"

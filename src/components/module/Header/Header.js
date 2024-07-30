@@ -61,25 +61,25 @@ function Header() {
         </a>
 
         {/* MD: */}
-        <div class="hidden md:flex  justify-between gap-24 lg:gap-10 xl:gap-40 h-15 items-center">
-          <ul class="flex gap-5  lg:gap-10">
-            <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
-              <Link href="/" class="">
+        <div className="hidden md:flex  justify-between gap-24 lg:gap-10 xl:gap-40 h-15 items-center">
+          <ul className="flex gap-5  lg:gap-10">
+            <li className="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
+              <Link href="/" className="">
                 صفحه اصلی
               </Link>
             </li>
-            <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
-              <a href="#" class="">
+            <li className="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
+              <a href="#" className="">
                 آموزش NFT{" "}
               </a>
             </li>
-            <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
-              <a href="#" class="">
+            <li className="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
+              <a href="#" className="">
                 گالری NFT ایرانی
               </a>
             </li>
-            <li class="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
-              <a href="#" class="">
+            <li className="md:text-nowrap lg:text-nowrap lg:text-xl font-bold text-gray-400">
+              <a href="#" className="">
                 تبلیغ NFT{" "}
               </a>
             </li>
@@ -108,7 +108,7 @@ function Header() {
             )}
             <Link
               href={`${user.isLogin ? "/my-account" : "/login-register"}`}
-              class="flex justify-between bg-orange-500 p-2 text-xs lg:text-sm lg:p-4 rounded gap-1 font-bold text-white items-center animate-pulse"
+              className="flex justify-between bg-orange-500 p-2 text-xs lg:text-sm lg:p-4 rounded gap-1 font-bold text-white items-center animate-pulse"
             >
               <img src="img/user.png" alt="" />
               {user.isLogin ? user.name : "ورود / ثبت نام"}
@@ -117,8 +117,8 @@ function Header() {
         </div>
 
         {/* Mobile: */}
-        <div class="flex items-center md:hidden">
-          <a href="#" class="me-3">
+        <div className="flex items-center md:hidden">
+          <a href="#" className="me-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -155,16 +155,16 @@ function Header() {
 
       {isShowModal && (
         <div
-          class="md:hidden bg-gray-custom rounded-xl  p-2 top-16 flex flex-col gap-5 transition-all ease-linear duration-200 m-3"
+          className="md:hidden bg-gray-custom rounded-xl  p-2 top-16 flex flex-col gap-5 transition-all ease-linear duration-200 m-3"
           data-aos="fade-down"
           id="navbarNav"
         >
-          <ul class="flex flex-col w-72 justify-center gap-5">
+          <ul className="flex flex-col w-72 justify-center gap-5">
             {user.isLogin ? (
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link
                   href="/my-account/orders"
-                  class="flex gap-3 items-center text-orange-500 font-bold"
+                  className="flex gap-3 items-center text-orange-500 font-bold"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -184,10 +184,10 @@ function Header() {
                 </Link>
               </li>
             ) : (
-              <li class="">
+              <li className="">
                 <Link
                   href="/login-register"
-                  class="flex gap-3 items-center font-bold text-green-500 animate-pulse"
+                  className="flex gap-3 items-center font-bold text-green-500 animate-pulse"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -208,10 +208,10 @@ function Header() {
               </li>
             )}
 
-            <li class="flex gap-3 items-center">
+            <li className="flex gap-3 items-center">
               <Link
                 href="/"
-                class="flex gap-3 items-center text-blue-600 font-bold"
+                className="flex gap-3 items-center text-blue-600 font-bold"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -233,10 +233,10 @@ function Header() {
 
             {/* start LogOut */}
             {user.isLogin && (
-              <li class="flex gap-3 items-center animate-pulse">
+              <li className="flex gap-3 items-center animate-pulse">
                 <a
                   href="#"
-                  class="flex gap-3 items-center text-red-600 font-bold"
+                  className="flex gap-3 items-center text-red-600 font-bold"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

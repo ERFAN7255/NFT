@@ -10,7 +10,7 @@ function Propertys() {
           data-aos="fade-up"
           data-aos-duration="500"
         >
-          <div class="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
+          <div className="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -25,8 +25,8 @@ function Propertys() {
             </svg>
           </div>
 
-          <h4 class="py-5 text-2xl">سرعت</h4>
-          <p class="text-gray-400 pb-10">
+          <h4 className="py-5 text-2xl">سرعت</h4>
+          <p className="text-gray-400 pb-10">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است
           </p>
@@ -38,7 +38,7 @@ function Propertys() {
           data-aos="fade-up"
           data-aos-duration="500"
         >
-          <div class="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
+          <div className="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -57,8 +57,8 @@ function Propertys() {
             </svg>
           </div>
 
-          <h4 class="py-5 text-2xl">امنیت</h4>
-          <p class="text-gray-400 pb-10">
+          <h4 className="py-5 text-2xl">امنیت</h4>
+          <p className="text-gray-400 pb-10">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است
           </p>
@@ -70,7 +70,7 @@ function Propertys() {
           data-aos="fade-up"
           data-aos-duration="500"
         >
-          <div class="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
+          <div className="bg-gray-800 border-2 border-gray-500 p-2 rounded-xl absolute -top-10 flex justify-center items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -85,8 +85,8 @@ function Propertys() {
             </svg>
           </div>
 
-          <h4 class="py-5 text-2xl">پشتیبانی</h4>
-          <p class="text-gray-400 pb-10">
+          <h4 className="py-5 text-2xl">پشتیبانی</h4>
+          <p className="text-gray-400 pb-10">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است
           </p>

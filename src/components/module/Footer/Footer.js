@@ -2,18 +2,18 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="p-2 lg:p-5 footer py-10">
-      <div class="relative ">
-        <div class="flex relative flex-col p-4 gap-5 md:flex-row md:items-start">
-          <div class="w-full md:w-2/3">
+    <footer className="p-2 lg:p-5 footer py-10">
+      <div className="relative ">
+        <div className="flex relative flex-col p-4 gap-5 md:flex-row md:items-start">
+          <div className="w-full md:w-2/3">
             <ul className="">
               <li>
-                <h4 class="text-white text-center md:text-start lg:text-start font-bold mb-8 text-2xl md:text-xl 2xl:text-3xl">
+                <h4 className="text-white text-center md:text-start lg:text-start font-bold mb-8 text-2xl md:text-xl 2xl:text-3xl">
                   Iran NFT
                 </h4>
               </li>
               <li>
-                <p class="text-white md:text-start 2xl:text-xl">
+                <p className="text-white md:text-start 2xl:text-xl">
                   بازار دیجیتال جهانی برای خرید و فروش کلکسیون ها و توکن های
                   غیرقابل تعویض (NFT) و کشف اقلام دیجیتال منحصر به فرد
                 </p>
@@ -21,17 +21,17 @@ function Footer() {
             </ul>
           </div>
 
-          <div class="w-full lg:w-1/4">
-            <ul class="my-5 md:my-0 flex flex-col gap-10">
+          <div className="w-full lg:w-1/4">
+            <ul className="my-5 md:my-0 flex flex-col gap-10">
               <li>
-                <h4 class="text-white text-center lg:text-start font-bold mb-4 md:text-xl 2xl:text-2xl">
+                <h4 className="text-white text-center lg:text-start font-bold mb-4 md:text-xl 2xl:text-2xl">
                   به ما بپیوندید
                 </h4>
               </li>
-              <li class="flex gap-3 justify-center lg:justify-start md:items-start">
+              <li className="flex gap-3 justify-center lg:justify-start md:items-start">
                 <a
                   href=""
-                  class="text-white icon_footer_link rounded-xl flex items-center justify-center"
+                  className="text-white icon_footer_link rounded-xl flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ function Footer() {
                 </a>
                 <a
                   href=""
-                  class="text-white fw-white   icon_footer_link rounded-xl flex items-center justify-center"
+                  className="text-white fw-white   icon_footer_link rounded-xl flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ function Footer() {
                 </a>
                 <a
                   href=""
-                  class="text-white fw-white icon_footer_instagram icon_footer_link rounded-xl flex items-center justify-center"
+                  className="text-white fw-white icon_footer_instagram icon_footer_link rounded-xl flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ function Footer() {
                 </a>
                 <a
                   href=""
-                  class="text-white fw-white icon_footer_link rounded-xl flex items-center justify-center"
+                  className="text-white fw-white icon_footer_link rounded-xl flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -107,17 +107,17 @@ function Footer() {
           </div>
 
           <div className="w-full flex justify-between 2xl:justify-evenly items-center gap-4 md:items-start md:gap-6">
-            <div class="w-1/2 flex flex-col items-center">
+            <div className="w-1/2 flex flex-col items-center">
               <ul className="flex flex-col">
                 <li>
-                  <h4 class="text-white font-bold mb-4 md:text-xl md:text-nowrap 2xl:text-2xl 2xl:mb-10">
+                  <h4 className="text-white font-bold mb-4 md:text-xl md:text-nowrap 2xl:text-2xl 2xl:mb-10">
                     دسترسی سریع
                   </h4>
                 </li>
                 <li>
                   <a
                     href=""
-                    class="text-white fw-medium mb-3 block 2xl:text-xl"
+                    className="text-white fw-medium mb-3 block 2xl:text-xl"
                   >
                     شرایط استفاده از خدمات
                   </a>
@@ -125,7 +125,7 @@ function Footer() {
                 <li>
                   <a
                     href=""
-                    class="text-white fw-medium mb-3 block 2xl:text-xl"
+                    className="text-white fw-medium mb-3 block 2xl:text-xl"
                   >
                     سوالات متداول
                   </a>
@@ -133,24 +133,24 @@ function Footer() {
                 <li>
                   <a
                     href=""
-                    class="text-white fw-medium mb-3 block 2xl:text-xl"
+                    className="text-white fw-medium mb-3 block 2xl:text-xl"
                   >
                     درباره ما
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="w-1/2 md:w-1/4 flex flex-col items-center">
+            <div className="w-1/2 md:w-1/4 flex flex-col items-center">
               <ul className="">
                 <li>
-                  <h4 class="text-white font-bold fs-4 mb-4 md:text-xl text-nowrap 2xl:text-2xl 2xl:mb-10">
+                  <h4 className="text-white font-bold fs-4 mb-4 md:text-xl text-nowrap 2xl:text-2xl 2xl:mb-10">
                     حساب من
                   </h4>
                 </li>
                 <li>
                   <a
                     href="/my-account"
-                    class="text-white fw-medium mb-3 block 2xl:text-xl"
+                    className="text-white fw-medium mb-3 block 2xl:text-xl"
                   >
                     پروفایل
                   </a>
@@ -158,7 +158,7 @@ function Footer() {
                 <li>
                   <a
                     href="/my-account/orders"
-                    class="text-white fw-medium mb-3 block 2xl:text-xl 2xl:text-nowrap"
+                    className="text-white fw-medium mb-3 block 2xl:text-xl 2xl:text-nowrap"
                   >
                     ان اف تی های شما
                   </a>
@@ -166,7 +166,7 @@ function Footer() {
                 <li>
                   <a
                     href=""
-                    class="text-white fw-medium mb-3 block 2xl:text-xl"
+                    className="text-white fw-medium mb-3 block 2xl:text-xl"
                   >
                     علاقه مندی ها
                   </a>
@@ -175,7 +175,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div class="Ellipse_4 rounded-circle z-1 absolute"></div>
+        <div className="Ellipse_4 rounded-circle z-1 absolute"></div>
       </div>
     </footer>
   );

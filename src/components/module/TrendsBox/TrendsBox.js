@@ -6,18 +6,18 @@ function TrendsBox({ img, creator, title, price, productID }) {
   return (
     <Link
       href={`productDetails/${productID}`}
-      class="w-full sm:w-1/2 md:w-1/3"
+      className="w-full sm:w-1/2 md:w-1/3"
       data-aos="fade-up"
       data-aos-duration="500"
     >
-      <div class="box_trends flex flex-col justify-center items-center p-4">
-        <div class="text-center items-center relative">
-          <img src={img} class="rounded-2xl w-64 sm:w-80 2xl:w-96" alt="" />
+      <div className="box_trends flex flex-col justify-center items-center p-4">
+        <div className="text-center items-center relative">
+          <img src={img} className="rounded-2xl w-64 sm:w-80 2xl:w-96" alt="" />
         </div>
 
-        <div class="bg-gray-custom w-full -mt-16 rounded-xl px-3 pb-8">
-          <h5 class="text-white pt-20 text-end 2xl:text-2xl">{title}</h5>
-          <div class="text-white 2xl:text-2xl flex justify-between items-center mt-1">
+        <div className="bg-gray-custom w-full -mt-16 rounded-xl px-3 pb-8">
+          <h5 className="text-white pt-20 text-end 2xl:text-2xl">{title}</h5>
+          <div className="text-white 2xl:text-2xl flex justify-between items-center mt-1">
             <div className="flex items-center gap-3">
               <span>{price} ETH</span>
               <svg
@@ -41,7 +41,7 @@ function TrendsBox({ img, creator, title, price, productID }) {
               </svg>
             </div>
             <div className="">
-              <span class="fs-5 ">By {creator}</span>
+              <span className="fs-5 ">By {creator}</span>
             </div>
           </div>
         </div>

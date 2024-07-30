@@ -3,18 +3,18 @@ import React from "react";
 function TopCreatorsBox() {
   return (
     <div
-      class="w-full sm:w-1/2 md:w-1/3 md:p-2 lg:p-4"
+      className="w-full sm:w-1/2 md:w-1/3 md:p-2 lg:p-4"
       data-aos="fade-up"
       data-aos-duration="500"
     >
       <div
-        class="flex items-center justify-center gap-3 p-3  
+        className="flex items-center justify-center gap-3 p-3  
         border-1 lg:px-4 2xl:px-8
         bg-gray-custom rounded-xl h-48"
       >
-        <div class="text-end w-full text-white flex flex-col items-end  p-1 h-28 justify-around">
-          <h5 class="fw-bold fs-4 m-0 2xl:text-2xl">Negar77</h5>
-          <div class="my-2 flex">
+        <div className="text-end w-full text-white flex flex-col items-end  p-1 h-28 justify-around">
+          <h5 className="fw-bold fs-4 m-0 2xl:text-2xl">Negar77</h5>
+          <div className="my-2 flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17"
@@ -89,13 +89,13 @@ function TopCreatorsBox() {
               />
             </svg>
           </div>
-          <div class="flex justify-between items-center w-full xl:text-xl">
+          <div className="flex justify-between items-center w-full xl:text-xl">
             <span>فروش کل:</span>
             <span>56.32 ETH</span>
           </div>
         </div>
 
-        <div class="img_top_creators">
+        <div className="img_top_creators">
           <img src="img/Ellipse 10.png" width="100%" alt="" />
         </div>
       </div>

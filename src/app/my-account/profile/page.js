@@ -10,8 +10,6 @@ function page() {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
 
-  console.log(user);
-
   return (
     <>
       <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">
