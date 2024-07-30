@@ -1,20 +1,29 @@
 import HotBidBox from "@/components/module/HotBidBox/HotBidBox";
 import React from "react";
+import ProductModel from "../../../../../models/Product";
 
-function HotBids() {
+async function HotBids() {
+  const products = await ProductModel.find({}, "-__v");
+  console.log(products);
+
+  const getRandomProductsFromArray = (arr, randomCount) => {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, randomCount);
+  };
+
   return (
     <div className="flex flex-col sm:flex-row sm:flex-wrap">
-      <HotBidBox title={"Digi Boy"} creator={"Negar"} img={"img/image 5.png"} />
-      <HotBidBox
-        title={"Angry Ape"}
-        creator={"Farshad"}
-        img={"img/image 5 (2).png"}
-      />
-      <HotBidBox
-        title={"Virtualland"}
-        creator={"Amirhossein"}
-        img={"img/image 5 (3).png"}
-      />
+      {getRandomProductsFromArray(products, 3).map((product) => (
+        <>
+          <HotBidBox
+            title={product.name}
+            creator={"ERFAN"}
+            price={product.price}
+            productID={product._id}
+            img={product.img}
+          />
+        </>
+      ))}
     </div>
   );
 }
