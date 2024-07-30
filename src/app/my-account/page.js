@@ -24,7 +24,10 @@ function page() {
         {user.name} عزیز ؛ خوش اومدی 🙌
       </h1>
       <div className="w-full p-6 flex flex-col lg:flex-row lg:flex-wrap gap-5">
-        <Link href={'/my-account/orders'} className="xl:w-1/4 bg-green-600 flex justify-start items-center gap-5 py-6 px-4 rounded-2xl">
+        <Link
+          href={"/my-account/orders"}
+          className="xl:w-1/4 bg-green-600 flex justify-start items-center gap-5 py-6 px-4 rounded-2xl"
+        >
           <div className="icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"

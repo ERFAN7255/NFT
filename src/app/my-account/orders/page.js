@@ -1,55 +1,51 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-"use client";
-import { addOrder } from "@/Redux/Slices/userSlice";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React, { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import swal from "sweetalert";
+import connectToDB from "../../../../configs/db";
+import UserModel from "../../../../models/User";
+import OrderModel from "../../../../models/Order";
+import { cookies } from "next/headers";
+import { verifyAccessToken } from "@/utils/auth";
+import DeleteOneOrder from "@/components/templates/user-panel/DeleteOneOrder";
 
-function page() {
-  const user = useSelector((state) => state.user.user);
-  const dispatch = useDispatch();
-  const [products, setProducts] = useState([]);
-  const router = useRouter();
+async function page() {
+  // const user = useSelector((state) => state.user.user);
+  // const dispatch = useDispatch();
+  // const [products, setProducts] = useState([]);
+  // const router = useRouter();
 
-  useEffect(() => {
-    fetch(`/api/orders/${user.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        dispatch(addOrder(data));
-      });
-  }, [user.id]);
+  // useEffect(() => {
+  //   fetch(`/api/orders/${user.id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setProducts(data);
+  //       dispatch(addOrder(data));
+  //     });
+  // }, [user.id]);
 
-  const deleteFromList = async (productID) => {
-    swal({
-      title: "آیا از حذف محصول از سبد خرید خود اطمینان دارید؟",
-      icon: "warning",
-      buttons: ["خیر", "بله"],
-    }).then((result) => {
-      if (result) {
-        fetch(`/api/orders/${productID}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userID: user.id }),
-        }).then((res) => {
-          res.json();
-          if (res.status === 201) {
-            swal({
-              title: "محصول از سبد خرید شما با موفقیت حذف شد",
-              icon: "success",
-              buttons: "تایید",
-            }).then(() => {
-              router.refresh();
-            });
-          }
-        });
-      }
-    });
-  };
+  connectToDB();
+  const token = cookies().get("token");
+  let user = null;
+
+  if (token) {
+    const tokenPayload = verifyAccessToken(token.value);
+    if (tokenPayload) {
+      user = await UserModel.findOne(
+        {
+          $or: [
+            { username: tokenPayload.email },
+            { email: tokenPayload.email },
+          ],
+        },
+        "-__v -password"
+      );
+    }
+  }
+
+  const userID = user._id;
+
+  const products = await OrderModel.find({ user: userID }).populate("product");
 
   return (
     <>
@@ -95,12 +91,7 @@ function page() {
                       {product.price} Eth
                     </td>
                     <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-0 text-center">
-                      <button
-                        className="btn-danger text-white p-2 md:p-3 md:px-3 lg:px-5 lg:p-3"
-                        onClick={() => deleteFromList(product._id)}
-                      >
-                        حذف
-                      </button>
+                      <DeleteOneOrder productId={product._id} />
                     </td>
                   </tr>
                 </>
@@ -110,16 +101,7 @@ function page() {
 
           {/* Button */}
           <div className="flex justify-center items-center py-10">
-            <button
-              onClick={() =>
-                swal({
-                  title: "آخه تو پول داری بدبخت؟",
-                  icon: "warning",
-                  buttons: "نه ببخشید مزاحم شدم 😔",
-                })
-              }
-              className="icon_footer_instagram px-4 w-1/2 text-nowrap md:w-3/5 lg:w-2/5 2xl:w-1/5 p-4 rounded-2xl text-white animate-pulse"
-            >
+            <button className="icon_footer_instagram px-4 w-1/2 text-nowrap md:w-3/5 lg:w-2/5 2xl:w-1/5 p-4 rounded-2xl text-white animate-pulse">
               نهایی کردن سفارشات
             </button>
           </div>
