@@ -23,7 +23,7 @@ export async function POST(req) {
     }
 
     const isUserExist = await UserModel.findOne({
-      $or: [{ name }, { email }, { phone }],
+      $or: [{ username }, { email }, { phone }, { name }],
     });
 
     if (isUserExist) {

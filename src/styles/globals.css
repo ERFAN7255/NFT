@@ -163,7 +163,7 @@ header::after {
   display: flex;
   flex-direction: column;
   background-color: #240046;
-  max-height: 510px;
+  max-height: 570px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 7px 7px 10px 3px #24004628;
@@ -216,7 +216,7 @@ label {
 .register {
   background: #eee;
   border-radius: 15% 15% 0% 0%;
-  transform: translateY(5%);
+  transform: translateY(14%);
   transition: 0.8s ease-in-out;
 }
 
@@ -226,7 +226,7 @@ label {
 }
 
 #chk:checked ~ .register {
-  transform: translateY(-60%);
+  transform: translateY(-52%);
 }
 
 #chk:checked ~ .register label {

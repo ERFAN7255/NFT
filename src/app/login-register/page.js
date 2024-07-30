@@ -8,9 +8,17 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 
 function page() {
+  const router = useRouter();
+  //login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
+
+  //register
+  const [nameRegister, setNameRegister] = useState("");
+  const [usernameRegister, setUsernameRegister] = useState("");
+  const [emailRegister, setEmailRegister] = useState("");
+  const [phoneRegister, setPhoneRegister] = useState("");
+  const [passwordRegister, setPasswordRegister] = useState("");
 
   const login = async (e) => {
     e.preventDefault();
@@ -44,11 +52,70 @@ function page() {
     }
   };
 
+  const register = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: nameRegister,
+      username: usernameRegister,
+      email: emailRegister,
+      phone: phoneRegister,
+      password: passwordRegister,
+    };
+
+    if (
+      !nameRegister.trim() ||
+      !usernameRegister.trim() ||
+      !emailRegister.trim() ||
+      !passwordRegister.trim()
+    ) {
+      swal({
+        title: "لطفا همه مقادیر را به درستی کامل کنید",
+        icon: "error",
+        buttons: "تلاش مجدد",
+      });
+    } else if (phoneRegister.length > 11 || phoneRegister.length < 1) {
+      swal({
+        title: "فیلد شماره تلفن را به درستی  وارد کنید !!",
+        text: "مثال : 09123456789",
+        icon: "warning",
+        buttons: "تلاش مجدد",
+      });
+    }
+
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+
+    if (res.status === 404) {
+      swal({
+        title:
+          "کاربری با این نام کاربری , شماره موبایل , نام یا ایمیل وجود دارد !!",
+        icon: "error",
+        text: "لطفا از طریق فرم ورود اقدام کنید",
+        buttons: "تلاش مجدد",
+      });
+    }
+
+    if (res.status === 201) {
+      swal({
+        title: "با موفقیت انجام شدید",
+        icon: "success",
+        buttons: "ورود به پنل کاربری",
+      }).then(() => {
+        router.replace("/my-account");
+      });
+    }
+  };
+
   return (
     <>
       <Header />
       <div className="p-4 flex justify-center">
-        <div class="main my-10 mb-14 w-96" data-aos="zoom-in-up">
+        <div class="main mt-0 mb-14 w-96" data-aos="zoom-in-up">
           <input type="checkbox" id="chk" aria-hidden="true" />
 
           <div class="login">
@@ -94,6 +161,8 @@ function page() {
                 minLength={2}
                 maxLength={14}
                 required={true}
+                value={usernameRegister}
+                onChange={(e) => setUsernameRegister(e.target.value)}
               />
               <input
                 class="input"
@@ -103,6 +172,19 @@ function page() {
                 minLength={2}
                 maxLength={20}
                 required={true}
+                value={nameRegister}
+                onChange={(e) => setNameRegister(e.target.value)}
+              />
+              <input
+                class="input"
+                type="number"
+                name="phone"
+                placeholder="شماره تلفن"
+                minLength={0}
+                maxLength={11}
+                required={true}
+                value={phoneRegister}
+                onChange={(e) => setPhoneRegister(e.target.value)}
               />
               <input
                 class="input"
@@ -110,6 +192,8 @@ function page() {
                 name="email"
                 placeholder="ایمیل"
                 required={true}
+                value={emailRegister}
+                onChange={(e) => setEmailRegister(e.target.value)}
               />
               <input
                 class="input"
@@ -119,8 +203,10 @@ function page() {
                 minLength={2}
                 maxLength={18}
                 required={true}
+                value={passwordRegister}
+                onChange={(e) => setPasswordRegister(e.target.value)}
               />
-              <button>ثبت نام</button>
+              <button onClick={register}>ثبت نام</button>
             </form>
           </div>
         </div>

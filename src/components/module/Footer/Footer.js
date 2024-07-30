@@ -2,9 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer
-      class="p-2 lg:p-5 footer py-10"
-    >
+    <footer class="p-2 lg:p-5 footer py-10">
       <div class="relative ">
         <div class="flex relative flex-col p-4 gap-5 md:flex-row md:items-start">
           <div class="w-full md:w-2/3">
@@ -151,7 +149,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href=""
+                    href="/my-account"
                     class="text-white fw-medium mb-3 block 2xl:text-xl"
                   >
                     پروفایل
@@ -159,7 +157,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href=""
+                    href="/my-account/orders"
                     class="text-white fw-medium mb-3 block 2xl:text-xl 2xl:text-nowrap"
                   >
                     ان اف تی های شما

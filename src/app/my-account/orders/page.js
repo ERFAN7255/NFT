@@ -43,14 +43,14 @@ async function page() {
     }
   }
 
-  const userID = user._id;
+  const userID = user?._id;
 
   const products = await OrderModel.find({ user: userID }).populate("product");
 
   return (
     <>
       <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">
-        {user.name} عزیز ؛ خوش اومدی 🙌
+        {user?.name} عزیز ؛ خوش اومدی 🙌
       </h1>
       {products.length > 0 ? (
         <div className="p-6 xl:px-40 w-full flex flex-col justify-center">
@@ -77,7 +77,7 @@ async function page() {
                   <tr>
                     <td className="border-2  border-purple-600 p-2 md:p-2">
                       <Image
-                        src={product.img}
+                        src={product?.img}
                         width={200}
                         height={200}
                         className="w-14 m-auto md:w-20"
@@ -85,13 +85,13 @@ async function page() {
                       />
                     </td>
                     <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-2 md:p-3 text-center text-blue-400">
-                      {product.name}
+                      {product?.name}
                     </td>
                     <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 px-2 py-6 md:p-3 text-center text-green-400">
-                      {product.price} Eth
+                      {product?.price} Eth
                     </td>
                     <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-0 text-center">
-                      <DeleteOneOrder productId={product._id} />
+                      <DeleteOneOrder productId={product?._id} />
                     </td>
                   </tr>
                 </>
