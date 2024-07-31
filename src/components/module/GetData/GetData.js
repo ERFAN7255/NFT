@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addOrder, me } from "@/Redux/Slices/userSlice";
-import { useRouter } from "next/navigation";
 
 function GetData() {
   const user = useSelector((state) => state.user.user);
@@ -27,7 +26,7 @@ function GetData() {
       });
   }, [user.id]);
 
-  return null;
+  return <></>;
 }
 
 export default GetData;
