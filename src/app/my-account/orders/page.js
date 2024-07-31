@@ -3,13 +3,11 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import DeleteOneOrder from "@/components/templates/user-panel/DeleteOneOrder";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { addOrder } from "@/Redux/Slices/userSlice";
 
 function page() {
   const user = useSelector((state) => state.user.user);
-  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const router = useRouter();
 
@@ -18,7 +16,6 @@ function page() {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        // dispatch(addOrder(data));
       });
   }, []);
 

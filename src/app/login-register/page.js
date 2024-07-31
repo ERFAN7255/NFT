@@ -5,7 +5,7 @@ import Header from "@/components/module/Header/Header";
 import Footer from "@/components/module/Footer/Footer";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function page() {
   const user = useSelector((state) => state.user.user);

@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Navbar from "@/components/templates/admin-panel/Navbar";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "@/components/templates/admin-panel/Header";
-import { Provider, useSelector } from "react-redux";
-import { store } from "@/Redux/store";
 import { useRouter } from "next/navigation";
 
 function page({ children }) {
@@ -15,7 +13,7 @@ function page({ children }) {
   }
 
   return (
-    <Provider store={store}>
+    <>
       <Navbar />
       <div className="md:flex md:justify-end">
         <div className="md:flex md:flex-col md:w-2/3 xl:w-4/5">
@@ -26,7 +24,7 @@ function page({ children }) {
           {children}
         </div>
       </div>
-    </Provider>
+    </>
   );
 }
 
