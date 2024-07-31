@@ -26,7 +26,7 @@ function GetData() {
       });
   }, [user.id]);
 
-  return <></>;
+  return null;
 }
 
 export default GetData;
