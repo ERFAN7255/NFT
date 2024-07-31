@@ -3,6 +3,7 @@ import "./../styles/globals.css";
 import AOSInit from "@/utils/aos";
 import { Metadata } from "next";
 import ReduxProvider from "@/Redux/Provider/ReduxProvider";
+import GetData from "@/components/module/GetData/GetData";
 
 // export const metadata = {
 //   title: "NFT by ERFAN",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         </head>
         <body>
           <AOSInit />
+          <GetData />
           {children}
         </body>
       </html>

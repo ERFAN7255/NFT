@@ -5,10 +5,16 @@ import Header from "@/components/module/Header/Header";
 import Footer from "@/components/module/Footer/Footer";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function page() {
+  const user = useSelector((state) => state.user.user);
   const router = useRouter();
+
+  if (user.isLogin) {
+    router.replace("/");
+  }
+
   //login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +53,7 @@ function page() {
         icon: "success",
         buttons: "ورود به پنل کاربری",
       }).then(() => {
-        router.replace("/my-account");
+        window.location.replace("/");
       });
     }
   };

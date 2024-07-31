@@ -9,22 +9,10 @@ import { useDispatch } from "react-redux";
 import { me } from "@/Redux/Slices/userSlice";
 
 function page({ children }) {
-  const dispatch = useDispatch();
-  const router = useRouter();
-
-  const getUserInfo = async () => {
-    const res = await fetch("/api/auth/me");
-    if (res.status === 200) {
-      const data = await res.json();
-      dispatch(me(data));
-    } else {
-      router.replace("/login-register");
-    }
-  };
-
-  useEffect(() => {
-    getUserInfo();
-  }, [getUserInfo]);
+  const user = useSelector((state) => state.user.user);
+  if (user.isLogin) {
+    router.replace("/");
+  }
 
   return (
     <>
