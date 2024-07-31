@@ -8,15 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 function page() {
   const user = useSelector((state) => state.user.user);
-  const dispatch = useDispatch();
+  
 
-  useEffect(() => {
-    fetch(`/api/orders/${user.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(addOrder(data));
-      });
-  }, [user.id]);
+  // if (!user.isLogin) {
+  //   router.replace("/login-register");
+  // }
 
   return (
     <>

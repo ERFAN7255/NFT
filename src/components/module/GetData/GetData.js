@@ -2,13 +2,12 @@
 "use client";
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { me } from "@/Redux/Slices/userSlice";
+import { addOrder, me } from "@/Redux/Slices/userSlice";
 import { useRouter } from "next/navigation";
 
 function GetData() {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-  const router = useRouter();
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -19,6 +18,14 @@ function GetData() {
         }
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`/api/orders/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(addOrder(data));
+      });
+  }, [user.id]);
 
   return null;
 }

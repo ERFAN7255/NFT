@@ -1,15 +1,36 @@
+"use client";
+import LinkNav from "@/components/module/LinkNav/LinkNav";
 import { hideNavbar, showNavbar } from "@/Redux/Slices/iShowUserPanelNavbar";
+import { addOrder } from "@/Redux/Slices/userSlice";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import swal from "sweetalert";
 
 function Navbar() {
+  const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const isShowNavbar = useSelector(
     (state) => state.isShowUserPanelNavbar.isShowNavbar
   );
-  const user = useSelector((state) => state.user.user);
+  const router = useRouter();
+
+  const logoutUser = async () => {
+    const res = await fetch("/api/auth/logout", {
+      method: "POST",
+    });
+    if (res.status === 201) {
+      swal({
+        title: "با موفقیت خارج شدید",
+        icon: "success",
+        buttons: "تایید",
+      }).then(() => {
+        router.replace("/");
+      });
+    }
+  };
 
   return (
     <>
@@ -36,10 +57,7 @@ function Navbar() {
 
           <div className="pt-10">
             <ul className="flex flex-col gap-6 p-4">
-              <Link
-                href={"/my-account"}
-                className="flex gap-2 p-2 rounded-xl text-white bg-purple-600"
-              >
+              <LinkNav href={"/my-account"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -55,11 +73,8 @@ function Navbar() {
                   />
                 </svg>
                 پیشخوان
-              </Link>
-              <Link
-                href={"/my-account/orders"}
-                className="flex gap-2 p-2 justify-between rounded-xl text-white"
-              >
+              </LinkNav>
+              <LinkNav href={"/my-account/orders"}>
                 <div className="flex gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -78,10 +93,10 @@ function Navbar() {
                   سبد خرید
                 </div>
                 <span className=" bg-red-600 flex items-center justify-center text-center w-4 h-4 rounded-full text-white p-3">
-                  0
+                  {user.orders.length}
                 </span>
-              </Link>
-              <Link
+              </LinkNav>
+              <LinkNav
                 href={"/my-account/profile"}
                 className="flex gap-2 p-2 rounded-xl text-white "
               >
@@ -100,7 +115,7 @@ function Navbar() {
                   />
                 </svg>
                 جزییات حساب
-              </Link>
+              </LinkNav>
               <Link
                 href={"/"}
                 className="flex gap-2 border-2 border-blue-400 p-2 rounded-xl text-blue-400"
@@ -178,10 +193,7 @@ function Navbar() {
 
         <div className="pt-10">
           <ul className="flex flex-col gap-6 p-4">
-            <Link
-              href={"/my-account"}
-              className="flex gap-2 p-2 rounded-xl text-white bg-purple-600"
-            >
+            <LinkNav href={"/my-account"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -197,11 +209,8 @@ function Navbar() {
                 />
               </svg>
               پیشخوان
-            </Link>
-            <Link
-              href={"/my-account/orders"}
-              className="flex gap-2 p-2 justify-between rounded-xl text-white"
-            >
+            </LinkNav>
+            <LinkNav href={"/my-account/orders"}>
               <div className="flex gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -222,11 +231,8 @@ function Navbar() {
               <span className=" bg-red-600 flex items-center justify-center text-center w-4 h-4 rounded-full text-white p-3">
                 {user.orders.length}
               </span>
-            </Link>
-            <Link
-              href={"/my-account/profile"}
-              className="flex gap-2 p-2 rounded-xl text-white"
-            >
+            </LinkNav>
+            <LinkNav href={"/my-account/profile"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -242,7 +248,7 @@ function Navbar() {
                 />
               </svg>
               جزییات حساب
-            </Link>
+            </LinkNav>
             <Link
               href={"/"}
               className="flex gap-2 border-2 border-blue-400 p-2 rounded-xl text-blue-400"
@@ -263,7 +269,10 @@ function Navbar() {
               </svg>
               برگشت به صفحه اصلی
             </Link>
-            <li className="flex gap-2 border-2 border-red-600 p-2 rounded-xl text-red-600">
+            <li
+              className="flex gap-2 border-2 border-red-600 p-2 rounded-xl text-red-600 cursor-pointer"
+              onClick={logoutUser}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

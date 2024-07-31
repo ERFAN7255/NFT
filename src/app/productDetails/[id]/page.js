@@ -10,7 +10,6 @@ import AddToOrders from "@/components/templates/productDetails/AddToOrders";
 async function page({ params }) {
   connectToDB();
   const productID = params.id;
-  console.log(productID);
 
   const product = await ProductModel.findOne({ _id: productID });
   return (

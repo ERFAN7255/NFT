@@ -1,51 +1,49 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+"use client";
 import Image from "next/image";
-import React from "react";
-import swal from "sweetalert";
-import connectToDB from "../../../../configs/db";
-import UserModel from "../../../../models/User";
-import OrderModel from "../../../../models/Order";
-import { cookies } from "next/headers";
-import { verifyAccessToken } from "@/utils/auth";
+import React, { useEffect, useState } from "react";
 import DeleteOneOrder from "@/components/templates/user-panel/DeleteOneOrder";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { addOrder } from "@/Redux/Slices/userSlice";
 
-async function page() {
-  // const user = useSelector((state) => state.user.user);
-  // const dispatch = useDispatch();
-  // const [products, setProducts] = useState([]);
-  // const router = useRouter();
+function page() {
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   fetch(`/api/orders/${user.id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setProducts(data);
-  //       dispatch(addOrder(data));
-  //     });
-  // }, [user.id]);
+  useEffect(() => {
+    fetch(`/api/orders/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        // dispatch(addOrder(data));
+      });
+  }, []);
 
-  connectToDB();
-  const token = cookies().get("token");
-  let user = null;
+  // connectToDB();
+  // const token = cookies().get("token");
+  // let user = null;
 
-  if (token) {
-    const tokenPayload = verifyAccessToken(token.value);
-    if (tokenPayload) {
-      user = await UserModel.findOne(
-        {
-          $or: [
-            { username: tokenPayload.email },
-            { email: tokenPayload.email },
-          ],
-        },
-        "-__v -password"
-      );
-    }
-  }
+  // if (token) {
+  //   const tokenPayload = verifyAccessToken(token.value);
+  //   if (tokenPayload) {
+  //     user = await UserModel.findOne(
+  //       {
+  //         $or: [
+  //           { username: tokenPayload.email },
+  //           { email: tokenPayload.email },
+  //         ],
+  //       },
+  //       "-__v -password"
+  //     );
+  //   }
+  // }
 
-  const userID = user?._id;
+  // const userID = user?._id;
 
-  const products = await OrderModel.find({ user: userID }).populate("product");
+  // const products = await OrderModel.find({ user: userID }).populate("product");
 
   return (
     <>

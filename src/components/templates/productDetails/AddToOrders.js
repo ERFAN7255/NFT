@@ -9,27 +9,39 @@ function AddToOrders({ productID }) {
   const router = useRouter();
 
   const addToOrders = async () => {
-    const res = await fetch(`/api/orders`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: "66a3a41324ada018fbaf5396",
-        product: productID,
-      }),
-    });
-
-    if (res.status === 201) {
+    if (!user.isLogin) {
       swal({
-        title: "با موفقیت به سبد خرید شما اضافه شد",
-        icon: "success",
-        buttons: ["تایید", "سبد خرید"],
+        title: "ابتدا ثبت نام یا ورود کنید.",
+        icon: "warning",
+        buttons: ["تایید", "صفحه ورود / ثبت نام"],
       }).then((result) => {
         if (result) {
-          router.push("/my-account");
+          router.push("/login-register");
         }
       });
+    } else {
+      const res = await fetch(`/api/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user: "66a3a41324ada018fbaf5396",
+          product: productID,
+        }),
+      });
+
+      if (res.status === 201) {
+        swal({
+          title: "با موفقیت به سبد خرید شما اضافه شد",
+          icon: "success",
+          buttons: ["تایید", "سبد خرید"],
+        }).then((result) => {
+          if (result) {
+            router.push("/my-account/orders");
+          }
+        });
+      }
     }
   };
 

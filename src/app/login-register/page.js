@@ -51,7 +51,7 @@ function page() {
       swal({
         title: "با موفقیت وارد شدید",
         icon: "success",
-        buttons: "ورود به پنل کاربری",
+        buttons: "صفحه اصلی",
       }).then(() => {
         window.location.replace("/");
       });
@@ -110,9 +110,9 @@ function page() {
       swal({
         title: "با موفقیت انجام شدید",
         icon: "success",
-        buttons: "ورود به پنل کاربری",
+        buttons: "صفحه اصلی",
       }).then(() => {
-        router.replace("/my-account");
+        window.location.replace("/");
       });
     }
   };

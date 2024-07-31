@@ -29,7 +29,8 @@ function DeleteOneOrder({ productId }) {
               icon: "success",
               buttons: "تایید",
             }).then(() => {
-              router.refresh();
+              router.refresh()
+              // window.location.reload();
             });
           }
         });
