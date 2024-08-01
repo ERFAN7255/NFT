@@ -19,29 +19,6 @@ function page() {
       });
   }, []);
 
-  // connectToDB();
-  // const token = cookies().get("token");
-  // let user = null;
-
-  // if (token) {
-  //   const tokenPayload = verifyAccessToken(token.value);
-  //   if (tokenPayload) {
-  //     user = await UserModel.findOne(
-  //       {
-  //         $or: [
-  //           { username: tokenPayload.email },
-  //           { email: tokenPayload.email },
-  //         ],
-  //       },
-  //       "-__v -password"
-  //     );
-  //   }
-  // }
-
-  // const userID = user?._id;
-
-  // const products = await OrderModel.find({ user: userID }).populate("product");
-
   return (
     <>
       <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">

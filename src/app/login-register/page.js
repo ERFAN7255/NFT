@@ -53,7 +53,8 @@ function page() {
         icon: "success",
         buttons: "صفحه اصلی",
       }).then(() => {
-        window.location.replace("/");
+        // window.location.replace("/");
+        router.replace("/");
       });
     }
   };
@@ -112,7 +113,8 @@ function page() {
         icon: "success",
         buttons: "صفحه اصلی",
       }).then(() => {
-        window.location.replace("/");
+        // window.location.replace("/");
+        router.replace("/");
       });
     }
   };

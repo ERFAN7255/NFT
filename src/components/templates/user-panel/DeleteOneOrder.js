@@ -30,7 +30,6 @@ function DeleteOneOrder({ productId }) {
               buttons: "تایید",
             }).then(() => {
               router.refresh()
-              // window.location.reload();
             });
           }
         });
