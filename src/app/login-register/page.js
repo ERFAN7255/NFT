@@ -53,9 +53,9 @@ function page() {
         icon: "success",
         buttons: "صفحه اصلی",
       }).then(() => {
-        // window.location.replace("/");
-        router.replace("/");
-        router.refresh();
+        window.location.replace("/");
+        // router.replace("/");
+        // router.refresh();
       });
     }
   };
@@ -114,9 +114,9 @@ function page() {
         icon: "success",
         buttons: "صفحه اصلی",
       }).then(() => {
-        // window.location.replace("/");
-        router.replace("/");
-        router.refresh();
+        window.location.replace("/");
+        // router.replace("/");
+        // router.refresh();
       });
     }
   };
