@@ -27,7 +27,7 @@ function Navbar() {
         icon: "success",
         buttons: "تایید",
       }).then(() => {
-        router.replace("/");
+        window.location.replace("/");
       });
     }
   };

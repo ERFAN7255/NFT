@@ -17,7 +17,7 @@ function page() {
       .then((data) => {
         setProducts(data);
       });
-  }, []);
+  }, [user.id]);
 
   return (
     <>
