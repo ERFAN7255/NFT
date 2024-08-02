@@ -55,6 +55,7 @@ function page() {
       }).then(() => {
         // window.location.replace("/");
         router.replace("/");
+        router.refresh();
       });
     }
   };
@@ -115,6 +116,7 @@ function page() {
       }).then(() => {
         // window.location.replace("/");
         router.replace("/");
+        router.refresh();
       });
     }
   };

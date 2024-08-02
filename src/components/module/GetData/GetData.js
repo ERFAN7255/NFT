@@ -22,7 +22,9 @@ function GetData() {
     fetch(`/api/orders/${user.id}`)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(addOrder(data));
+        if (data.data !== null) {
+          dispatch(addOrder(data));
+        }
       });
   }, [user.id]);
 
