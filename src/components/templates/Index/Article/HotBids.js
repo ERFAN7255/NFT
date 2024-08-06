@@ -4,7 +4,6 @@ import ProductModel from "../../../../../models/Product";
 
 async function HotBids() {
   const products = await ProductModel.find({}, "-__v");
-  console.log(products);
 
   const getRandomProductsFromArray = (arr, randomCount) => {
     const shuffled = [...arr].sort(() => 0.5 - Math.random());

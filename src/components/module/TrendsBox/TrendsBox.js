@@ -27,7 +27,7 @@ function TrendsBox({ img, creator, title, price, productID }) {
                 viewBox="0 0 21 34"
                 fill="none"
               >
-                <g clip-path="url(#clip0_150_155)">
+                <g clipPath="url(#clip0_150_155)">
                   <path
                     d="M20.4683 17.115L10.4999 23.205L0.524902 17.115L10.4999 0L20.4683 17.115ZM10.4999 25.1606L0.524902 19.0706L10.4999 33.6L20.4749 19.0706L10.4999 25.1606Z"
                     fill="#FFBF1C"

@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
+import { addOrder } from "@/Redux/Slices/userSlice";
 import Link from "next/link";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function page() {
   const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
 
   return (
     <>

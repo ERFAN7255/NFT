@@ -24,8 +24,6 @@ export async function POST(req) {
       img: `/uploads/${filename}`,
     });
 
-    console.log("product =>", product);
-
     return Response.json(
       { message: "Product created successfully :))", data: product },
       { status: 201 }

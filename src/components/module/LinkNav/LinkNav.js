@@ -5,7 +5,6 @@ import React from "react";
 
 function LinkNav({ href, children }) {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <Link
       href={href}

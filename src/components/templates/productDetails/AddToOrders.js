@@ -26,7 +26,7 @@ function AddToOrders({ productID }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user: "66a3a41324ada018fbaf5396",
+          user: user.id,
           product: productID,
         }),
       });

@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
     const userID = params.id;
 
     const orders = await OrderModel.find({ user: userID }).populate("product");
-
+    console.log("orders =>", orders);
     return Response.json(orders, { status: 200 });
   } catch (error) {
     return Response.json({ message: error }, { status: 500 });

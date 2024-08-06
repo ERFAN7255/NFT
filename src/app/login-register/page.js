@@ -130,7 +130,7 @@ function page() {
 
           <div className="login">
             <form className="form">
-              <label for="chk" aria-hidden="true" className="animate-bounce">
+              <label htmlFor="chk" aria-hidden="true" className="animate-bounce">
                 ورود
               </label>
               <input
@@ -160,7 +160,7 @@ function page() {
 
           <div className="register mt-6">
             <form className="form">
-              <label for="chk" aria-hidden="true" className="animate-pulse">
+              <label htmlFor="chk" aria-hidden="true" className="animate-pulse">
                 ثبت نام
               </label>
               <input

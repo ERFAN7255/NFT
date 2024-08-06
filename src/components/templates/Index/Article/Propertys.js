@@ -6,7 +6,7 @@ function Propertys() {
     <div className="mt-24 flex flex-col md:flex-row md:gap-5">
       <SectionProperty>
         <div
-          class={`bg-green-950 border-green-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
+          className={`bg-green-950 border-green-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
           data-aos="fade-up"
           data-aos-duration="500"
         >
@@ -34,7 +34,7 @@ function Propertys() {
       </SectionProperty>
       <SectionProperty>
         <div
-          class={`bg-blue-950 border-blue-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
+          className={`bg-blue-950 border-blue-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
           data-aos="fade-up"
           data-aos-duration="500"
         >
@@ -66,7 +66,7 @@ function Propertys() {
       </SectionProperty>
       <SectionProperty>
         <div
-          class={`bg-red-950 border-red-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
+          className={`bg-red-950 border-red-600  border-2 mb-3 lg:m-0 relative text-start flex gap- px-4 pt-2 lg:pt-2 justify-center flex-col text-white rounded-xl`}
           data-aos="fade-up"
           data-aos-duration="500"
         >

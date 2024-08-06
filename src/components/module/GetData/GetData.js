@@ -19,13 +19,13 @@ function GetData() {
   }, []);
 
   useEffect(() => {
-    fetch(`/api/orders/${user.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.data !== null) {
+    if (user.id !== null) {
+      fetch(`/api/orders/${user.id}`)
+        .then((res) => res.json())
+        .then((data) => {
           dispatch(addOrder(data));
-        }
-      });
+        });
+    }
   }, [user.id]);
 
   return null;

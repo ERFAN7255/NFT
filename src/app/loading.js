@@ -4,9 +4,9 @@ import styles from "@/styles/loading.module.css";
 function loading() {
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-      <div class={styles.loader}>
-        <span class={styles.loader_text}>loading</span>
-        <span class={styles.load}></span>
+      <div className={styles.loader}>
+        <span className={styles.loader_text}>loading</span>
+        <span className={styles.load}></span>
       </div>
     </div>
   );

@@ -10,8 +10,6 @@ function Navbar() {
     (state) => state.isShowUserPanelNavbar.isShowNavbar
   );
 
-  console.log(isShowNavbar);
-
   return (
     <>
       {/* Mobile size: */}

@@ -24,7 +24,6 @@ const verifyAccessToken = (token) => {
     const tokenPayload = verify(token, process.env.AccessTakenSecretKey);
     return tokenPayload;
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

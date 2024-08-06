@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 
 function Header() {
   const dispatch = useDispatch();
-  console.log(dispatch(showNavbar()));
   return (
     <div className="flex justify-between items-center border-b-2 border-gray-700 p-2 px-4 ">
       <div className="flex gap-2">
