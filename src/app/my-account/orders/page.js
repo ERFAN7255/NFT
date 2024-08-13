@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import DeleteOneOrder from "@/components/templates/user-panel/DeleteOneOrder";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
+import apiRequest from "@/Services/Axios/Configs/config";
 
 function page() {
   const user = useSelector((state) => state.user.user);
@@ -17,6 +18,9 @@ function page() {
       .then((data) => {
         setProducts(data);
       });
+
+    // const products = apiRequest.get(`/orders/${user.id}`);
+    // console.log(products);
   }, [user.id, user.orders]);
 
   return (

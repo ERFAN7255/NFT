@@ -2,6 +2,7 @@
 import LinkNav from "@/components/module/LinkNav/LinkNav";
 import { hideNavbar, showNavbar } from "@/Redux/Slices/iShowUserPanelNavbar";
 import { addOrder } from "@/Redux/Slices/userSlice";
+import apiRequest from "@/Services/Axios/Configs/config";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -18,9 +19,8 @@ function Navbar() {
   const router = useRouter();
 
   const logoutUser = async () => {
-    const res = await fetch("/api/auth/logout", {
-      method: "POST",
-    });
+    const res = await apiRequest.post("/auth/logout");
+
     if (res.status === 201) {
       swal({
         title: "با موفقیت خارج شدید",

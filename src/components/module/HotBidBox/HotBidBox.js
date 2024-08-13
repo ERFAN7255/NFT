@@ -10,8 +10,8 @@ function HotBidBox({ title, creator, img, price, productID }) {
     >
       <div className="p-3 w-full bg-gray-custom rounded-3xl flex flex-col md:h-full">
         <div className=" flex justify-end relative">
-          <Link href={`/productDetails/${productID}`}>
-            <img src={img} alt="" className="rounded-4 md:w-96" />
+          <Link href={`/productDetails/${productID}`} className="w-full">
+            <img src={img} alt="" className="rounded-4 w-full" />
           </Link>
           <div className="absolute flex gap-2 left-5 top-3 justify-center items-center">
             <div className="backdrop-blur-sm bg-black/55 px-4 py-2 text-xs font-bold rounded-full fw-bold gap-2 flex justify-center items-center text-white lg:text-xl">
@@ -19,7 +19,7 @@ function HotBidBox({ title, creator, img, price, productID }) {
               <span>34m</span>
               <span>2h</span>
             </div>
-            <div className="d-flex align-items-center justify-content-center hearet_icon_hot_bids rounded-circle">
+            <div className="hearet_icon_hot_bids rounded-circle">
               <img src="img/heart.png" alt="" />
             </div>
           </div>

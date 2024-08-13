@@ -1,4 +1,5 @@
 "use client";
+import apiRequest from "@/Services/Axios/Configs/config";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -20,15 +21,9 @@ function AddToOrders({ productID }) {
         }
       });
     } else {
-      const res = await fetch(`/api/orders`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: user.id,
-          product: productID,
-        }),
+      const res = await apiRequest.post("/orders", {
+        user: user.id,
+        product: productID,
       });
 
       if (res.status === 201) {

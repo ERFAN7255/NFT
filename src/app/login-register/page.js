@@ -6,6 +6,7 @@ import Footer from "@/components/module/Footer/Footer";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
+import apiRequest from "@/Services/Axios/Configs/config";
 
 function page() {
   const user = useSelector((state) => state.user.user);
@@ -31,13 +32,7 @@ function page() {
 
     const user = { email, username: email, password };
 
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    const res = await apiRequest.post("/auth/login", user);
 
     if (res.status === 422 || res.status === 401) {
       swal({
@@ -90,13 +85,7 @@ function page() {
       });
     }
 
-    const res = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    });
+    const res = await apiRequest.post("/auth/register", newUser);
 
     if (res.status === 404) {
       swal({
@@ -130,7 +119,11 @@ function page() {
 
           <div className="login">
             <form className="form">
-              <label htmlFor="chk" aria-hidden="true" className="animate-bounce">
+              <label
+                htmlFor="chk"
+                aria-hidden="true"
+                className="animate-bounce"
+              >
                 ورود
               </label>
               <input

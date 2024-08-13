@@ -1,13 +1,29 @@
 "use client";
+import apiRequest from "@/Services/Axios/Configs/config";
 import Link from "next/link";
 import React, { useState } from "react";
 import { TiHomeOutline } from "react-icons/ti";
 import { useSelector } from "react-redux";
+import swal from "sweetalert";
 
 function Header() {
   const [isShowModal, setIsShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const user = useSelector((state) => state.user.user);
+
+  const logout = async () => {
+    const res = await apiRequest.post("/auth/logout");
+
+    if (res.status === 201) {
+      swal({
+        title: "با موفقیت خارج شدید",
+        icon: "success",
+        buttons: "تایید",
+      }).then(() => {
+        window.location.replace("/");
+      });
+    }
+  };
 
   return (
     <>
@@ -258,7 +274,10 @@ function Header() {
 
             {/* start LogOut */}
             {user.isLogin && (
-              <li className="flex gap-3 items-center animate-pulse">
+              <li
+                className="flex gap-3 items-center animate-pulse"
+                onClick={logout}
+              >
                 <a
                   href="#"
                   className="flex gap-3 items-center text-red-600 font-bold"
