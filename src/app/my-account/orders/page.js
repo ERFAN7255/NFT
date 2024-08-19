@@ -8,27 +8,28 @@ import { useRouter } from "next/navigation";
 import apiRequest from "@/Services/Axios/Configs/config";
 
 function page() {
-  const user = useSelector((state) => state.user.user);
-  const [products, setProducts] = useState([]);
+  // const { user } = useSelector((state) => state.user);
+  const { user, isLogin, isloading } = useSelector((state) => state.user);
   const router = useRouter();
 
-  useEffect(() => {
-    fetch(`/api/orders/${user.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-
-    // const products = apiRequest.get(`/orders/${user.id}`);
-    // console.log(products);
-  }, [user.id, user.orders]);
+  // useEffect(() => {
+  //   // fetch(`/api/orders/${user.id}`)
+  //   //   .then((res) => res.json())
+  //   //   .then((data) => {
+  //   //     setProducts(data);
+  //   //   });
+  //   // const products = apiRequest.get(`/orders/${user.id}`).then((data) => {
+  //   //   console.log(data);
+  //   // });
+  //   console.log(products);
+  // }, []);
 
   return (
     <>
       <h1 className="text-white mt-5 mr-5 mb-2 lg:text-2xl">
         {user?.name} عزیز ؛ خوش اومدی 🙌
       </h1>
-      {products.length > 0 ? (
+      {user.orders.length > 0 ? (
         <div className="p-6 xl:px-40 w-full flex flex-col justify-center">
           <table className="border-2 border-black">
             <thead>
@@ -48,7 +49,7 @@ function page() {
               </tr>
             </thead>
             <tbody>
-              {products?.map(({ product }) => (
+              {user?.orders.map(({ product }) => (
                 <>
                   <tr>
                     <td className="border-2  border-purple-600 p-2 md:p-2">
