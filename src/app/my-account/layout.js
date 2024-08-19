@@ -11,6 +11,11 @@ import { useSelector } from "react-redux";
 function page({ children }) {
   const { user, isLogin, isloading } = useSelector((state) => state.user);
   const router = useRouter();
+
+  if (isloading) {
+    return <loading />;
+  }
+  
   if (!isLogin) {
     router.replace("/");
   }

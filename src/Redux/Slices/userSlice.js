@@ -8,11 +8,14 @@ export const getUserInfo = createAsyncThunk("users/getUserInfo", async () => {
     .catch((data) => data);
 });
 
-export const getUserOrders = createAsyncThunk("users/getUserInfo", async () => {
-  return fetch("/api/auth/me")
-    .then((res) => res.json())
-    .catch((data) => data);
-});
+export const UserOrders = createAsyncThunk(
+  "orders/UserOrders",
+  async (userId) => {
+    return fetch(`/api/orders/${userId}`)
+      .then((res) => res.json())
+      .then((data) => data);
+  }
+);
 
 const initialState = {
   user: {
@@ -41,11 +44,11 @@ const userSlice = createSlice({
     //   state.user.phone = action.payload.phone;
     //   state.user.role = action.payload.role;
     // },
-    addOrder(state, action) {
-      if (action.payload.length) {
-        state.user.orders = [...action.payload];
-      }
-    },
+    // addOrder(state, action) {
+    //   if (action.payload.length) {
+    //     state.user.orders = [...action.payload];
+    //   }
+    // },
     logout(state) {
       state.isLogin = false;
       state.user.name = null;
@@ -57,6 +60,7 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    // User
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
       console.log(action);
       state.isLogin = true;
@@ -73,6 +77,21 @@ const userSlice = createSlice({
     });
     builder.addCase(getUserInfo.rejected, (state, action) => {
       state.isLogin = false;
+      state.isLoading = false;
+    });
+
+    // Orders
+    builder.addCase(UserOrders.fulfilled, (state, action) => {
+      if (action.payload.length) {
+        state.user.orders = [...action.payload];
+      }
+    });
+    builder.addCase(UserOrders.pending, (state, action) => {
+      state.user.orders = [];
+      state.isLoading = true;
+    });
+    builder.addCase(UserOrders.rejected, (state, action) => {
+      state.user.orders = [];
       state.isLoading = false;
     });
   },
