@@ -9,10 +9,10 @@ import { useSelector } from "react-redux";
 import apiRequest from "@/Services/Axios/Configs/config";
 
 function page() {
-  const user = useSelector((state) => state.user.user);
+  const { user, isLogin, isloading } = useSelector((state) => state.user);
   const router = useRouter();
 
-  if (user.isLogin) {
+  if (isLogin) {
     router.replace("/");
   }
 

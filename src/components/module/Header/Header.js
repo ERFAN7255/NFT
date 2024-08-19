@@ -5,11 +5,11 @@ import React, { useState } from "react";
 import { TiHomeOutline } from "react-icons/ti";
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
+import loading from "@/app/loading";
 
 function Header() {
   const [isShowModal, setIsShowModal] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const user = useSelector((state) => state.user.user);
+  const { user, isLogin, isloading } = useSelector((state) => state.user);
 
   const logout = async () => {
     const res = await apiRequest.post("/auth/logout");
@@ -24,6 +24,10 @@ function Header() {
       });
     }
   };
+
+  if (isloading) {
+    return <loading />;
+  }
 
   return (
     <>
@@ -101,7 +105,7 @@ function Header() {
             </li>
           </ul>
           <div className="flex items-center gap-3">
-            {user.isLogin && (
+            {isLogin && (
               <Link href="/my-account/orders" className="animate-bounce">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,11 +127,11 @@ function Header() {
               </Link>
             )}
             <Link
-              href={`${user.isLogin ? "/my-account" : "/login-register"}`}
+              href={`${isLogin ? "/my-account" : "/login-register"}`}
               className="flex justify-between bg-orange-500 p-2 text-xs lg:text-sm lg:p-4 rounded gap-1 font-bold text-white items-center animate-pulse"
             >
               <img src="img/user.png" alt="" />
-              {user.isLogin ? user.name : "ورود / ثبت نام"}
+              {isLogin ? user.name : "ورود / ثبت نام"}
             </Link>
           </div>
         </div>
@@ -150,7 +154,7 @@ function Header() {
               />
             </svg>
           </a>
-          <Link href={`${user.isLogin ? "/my-account" : "/login-register"}`}>
+          <Link href={`${isLogin ? "/my-account" : "/login-register"}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -176,7 +180,7 @@ function Header() {
           id="navbarNav"
         >
           <ul className="flex flex-col w-72 justify-center gap-5">
-            {user.isLogin ? (
+            {isLogin ? (
               <>
                 <li className="nav-item">
                   <Link
@@ -273,7 +277,7 @@ function Header() {
             </li>
 
             {/* start LogOut */}
-            {user.isLogin && (
+            {isLogin && (
               <li
                 className="flex gap-3 items-center animate-pulse"
                 onClick={logout}

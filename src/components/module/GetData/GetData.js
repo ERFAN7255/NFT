@@ -2,20 +2,24 @@
 "use client";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addOrder, me } from "@/Redux/Slices/userSlice";
+import { addOrder, getUserInfo, me } from "@/Redux/Slices/userSlice";
 
 function GetData() {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   fetch("/api/auth/me")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.data !== null) {
+  //         dispatch(me(data));
+  //       }
+  //     });
+  // }, []);
+
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.data !== null) {
-          dispatch(me(data));
-        }
-      });
+    dispatch(getUserInfo());
   }, []);
 
   useEffect(() => {

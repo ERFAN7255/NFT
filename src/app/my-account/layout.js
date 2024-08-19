@@ -9,9 +9,9 @@ import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 function page({ children }) {
-  const user = useSelector((state) => state.user.user);
+  const { user, isLogin, isloading } = useSelector((state) => state.user);
   const router = useRouter();
-  if (!user.isLogin) {
+  if (!isLogin) {
     router.replace("/");
   }
 

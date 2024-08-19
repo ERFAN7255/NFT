@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
 function AddToOrders({ productID }) {
-  const user = useSelector((state) => state.user.user);
+  const { user, isLogin, isloading } = useSelector((state) => state.user);
   const router = useRouter();
 
   const addToOrders = async () => {
-    if (!user.isLogin) {
+    if (!isLogin) {
       swal({
         title: "ابتدا ثبت نام یا ورود کنید.",
         icon: "warning",
