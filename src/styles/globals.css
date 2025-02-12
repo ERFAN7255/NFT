@@ -266,7 +266,36 @@ label {
 /* End not found page */
 
 /* swal */
+
+.swal-modal {
+  background-color: #240046;
+  color: #fff;
+}
+
+.swal-title {
+  color: #fff;
+}
+.swal-text {
+  color: #cfb000;
+}
+
+.swal-button--confirm {
+  background-color: #9a5bff;
+}
+
 .swal-footer {
   display: flex;
   justify-content: center;
+}
+
+.swal-icon::before {
+  background-color: #240046;
+}
+
+.swal-icon::after {
+  background-color: #240046;
+}
+
+.swal-icon--success__hide-corners {
+  background-color: #240046;
 }

@@ -32,26 +32,35 @@ function page() {
 
     const user = { email, username: email, password };
 
-    const res = await apiRequest.post("/auth/login", user);
-
-    if (res.status === 422 || res.status === 401) {
+    if (!email.length || !password.length) {
+      console.log("object");
       swal({
-        title: "نام کاربری یا رمز عبور اشتباه میباشد !!",
+        title: "لطفا همه مقادیر را به درستی کامل کنید",
         icon: "error",
         buttons: "تلاش مجدد",
       });
-    }
+    } else {
+      try {
+        const res = await apiRequest.post("/auth/login", user);
 
-    if (res.status === 201) {
-      swal({
-        title: "با موفقیت وارد شدید",
-        icon: "success",
-        buttons: "صفحه اصلی",
-      }).then(() => {
-        window.location.replace("/");
-        // router.replace("/");
-        // router.refresh();
-      });
+        if (res.status === 201) {
+          swal({
+            title: "با موفقیت وارد شدید",
+            icon: "success",
+            buttons: "صفحه اصلی",
+          }).then(() => {
+            window.location.replace("/");
+            // router.replace("/");
+            // router.refresh();
+          });
+        }
+      } catch (error) {
+        swal({
+          title: "نام کاربری یا رمز عبور اشتباه میباشد !!",
+          icon: "error",
+          buttons: "تلاش مجدد",
+        });
+      }
     }
   };
 
@@ -83,33 +92,31 @@ function page() {
         icon: "warning",
         buttons: "تلاش مجدد",
       });
-    }
-
-    const res = await apiRequest.post("/auth/register", newUser);
-
-    if (res.status === 404) {
-      swal({
-        title:
-          "کاربری با این نام کاربری , شماره موبایل , نام یا ایمیل وجود دارد !!",
-        icon: "error",
-        text: "لطفا از طریق فرم ورود اقدام کنید",
-        buttons: "تلاش مجدد",
-      });
-    }
-
-    if (res.status === 201) {
-      swal({
-        title: "با موفقیت انجام شدید",
-        icon: "success",
-        buttons: "صفحه اصلی",
-      }).then(() => {
-        window.location.replace("/");
-        // router.replace("/");
-        // router.refresh();
-      });
+    } else {
+      try {
+        const res = await apiRequest.post("/auth/register", newUser);
+        if (res.status === 201) {
+          swal({
+            title: "با موفقیت انجام شدید",
+            icon: "success",
+            buttons: "صفحه اصلی",
+          }).then(() => {
+            window.location.replace("/");
+            // router.replace("/");
+            // router.refresh();
+          });
+        }
+      } catch (error) {
+        swal({
+          title:
+            "کاربری با این نام کاربری , شماره موبایل , نام یا ایمیل وجود دارد !!",
+          icon: "error",
+          text: "لطفا از طریق فرم ورود اقدام کنید",
+          buttons: "تلاش مجدد",
+        });
+      }
     }
   };
-
   return (
     <>
       <Header />
