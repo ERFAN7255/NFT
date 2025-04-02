@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           showConfirmButton: false,
         })
         .then(() => {
-          router.replace("/");
+          window.location.replace("/");
         });
     }
   };

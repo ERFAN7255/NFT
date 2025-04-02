@@ -47,8 +47,6 @@ const AddToOrders: React.FC<AddToOrdersProps> = ({ productID }) => {
           .then((result) => {
             if (result.isConfirmed) {
               router.push("/my-account/orders");
-            } else {
-              window.location.reload();
             }
           });
       }
