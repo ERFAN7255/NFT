@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import "./../styles/globals.css";
 import AOSInit from "@/utils/aos";
 import ReduxProvider from "@/Redux/Provider/ReduxProvider";
@@ -12,7 +12,11 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ReduxProvider>
       <html lang="en" dir="rtl">

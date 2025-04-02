@@ -1,8 +1,8 @@
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 import styles from "@/styles/notfound.module.css";
 
-function notfound() {
+const Notfound: FC = () => {
   return (
     <>
       <div className={styles.div_notFound}></div>
@@ -54,15 +54,15 @@ function notfound() {
       <svg>
         <defs>
           <filter id="glow">
-            <fegaussianblur
+            <feGaussianBlur
               className="blur"
               result="coloredBlur"
-              stddeviation="4"
-            ></fegaussianblur>
-            <femerge>
-              <femergenode in="coloredBlur"></femergenode>
-              <femergenode in="SourceGraphic"></femergenode>
-            </femerge>
+              stdDeviation="4"
+            ></feGaussianBlur>
+            <feMerge>
+              <feMergeNode in="coloredBlur"></feMergeNode>
+              <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
           </filter>
         </defs>
       </svg>
@@ -92,6 +92,6 @@ function notfound() {
       </Link>
     </>
   );
-}
+};
 
-export default notfound;
+export default Notfound;

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "@/styles/loading.module.css";
 
-function loading() {
+const Loading: FC = () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center">
       <div className={styles.loader}>
@@ -10,6 +10,6 @@ function loading() {
       </div>
     </div>
   );
-}
+};
 
-export default loading;
+export default Loading;
