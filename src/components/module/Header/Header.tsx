@@ -3,7 +3,7 @@ import apiRequest from "@/Services/Axios/Configs/config";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import { RootState } from "@/Redux/store";
 import Loading from "@/app/loading";
 
@@ -15,10 +15,10 @@ const Header: React.FC = () => {
     const res = await apiRequest.post("/auth/logout");
 
     if (res.status === 201) {
-      swal({
+      swal.fire({
         title: "با موفقیت خارج شدید",
         icon: "success",
-        buttons: "تایید",
+        confirmButtonText: "تایید",
       }).then(() => {
         window.location.replace("/");
       });

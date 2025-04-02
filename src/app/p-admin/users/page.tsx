@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 
 function page() {
   return (
@@ -37,10 +37,10 @@ function page() {
               <button
                 className="btn-danger text-white p-2 md:p-3 md:px-3 lg:px-5 lg:p-2"
                 onClick={() =>
-                  swal({
+                  swal.fire({
                     title: "صبر کن بچه جان سایت هنوز کامل نشده 🤨",
                     icon: "warning",
-                    buttons: "چشم",
+                    confirmButtonText: "چشم",
                   })
                 }
               >

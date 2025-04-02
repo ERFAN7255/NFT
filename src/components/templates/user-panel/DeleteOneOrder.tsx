@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useSelector } from "react-redux";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import { RootState } from "@/Redux/store";
 
 interface DeleteOneOrderProps {
@@ -14,32 +14,36 @@ const DeleteOneOrder: React.FC<DeleteOneOrderProps> = ({ productId }) => {
   const router = useRouter();
 
   const deleteFromList = async (productID: string) => {
-    swal({
-      title: "آیا از حذف محصول از سبد خرید خود اطمینان دارید؟",
-      icon: "warning",
-      buttons: ["خیر", "بله"],
-    }).then((result) => {
-      if (result) {
-        fetch(`/api/orders/${productID}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userID: user.id }),
-        }).then((res) => {
-          res.json();
-          if (res.status === 201) {
-            swal({
-              title: "محصول از سبد خرید شما با موفقیت حذف شد",
-              icon: "success",
-              buttons: "تایید",
-            }).then(() => {
-              router.refresh();
-            });
-          }
-        });
-      }
-    });
+    swal
+      .fire({
+        title: "آیا از حذف محصول از سبد خرید خود اطمینان دارید؟",
+        icon: "warning",
+        confirmButtonText: "بله",
+        cancelButtonText: "خیر",
+        showCancelButton: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          fetch(`/api/orders/${productID}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userID: user.id }),
+          }).then((res) => {
+            res.json();
+            if (res.status === 201) {
+              swal.fire({
+                title: "محصول از سبد خرید شما با موفقیت حذف شد",
+                icon: "success",
+                confirmButtonText: "تایید",
+              }).then(() => {
+                router.refresh();
+              });
+            }
+          });
+        }
+      });
   };
 
   return (

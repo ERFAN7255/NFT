@@ -3,7 +3,7 @@ import apiRequest from "@/Services/Axios/Configs/config";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useSelector } from "react-redux";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import { RootState } from "@/Redux/store";
 
 interface AddToOrdersProps {
@@ -16,15 +16,19 @@ const AddToOrders: React.FC<AddToOrdersProps> = ({ productID }) => {
 
   const addToOrders = async () => {
     if (!isLogin) {
-      swal({
-        title: "ابتدا ثبت نام یا ورود کنید.",
-        icon: "warning",
-        buttons: ["تایید", "صفحه ورود / ثبت نام"],
-      }).then((result) => {
-        if (result) {
-          router.push("/login-register");
-        }
-      });
+      swal
+        .fire({
+          title: "ابتدا ثبت نام یا ورود کنید.",
+          icon: "warning",
+          confirmButtonText: "صفحه ورود / ثبت نام",
+          cancelButtonText: "تایید",
+          showCancelButton: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            router.push("/login-register");
+          }
+        });
     } else {
       const res = await apiRequest.post("/orders", {
         user: user.id,
@@ -32,15 +36,19 @@ const AddToOrders: React.FC<AddToOrdersProps> = ({ productID }) => {
       });
 
       if (res.status === 201) {
-        swal({
-          title: "با موفقیت به سبد خرید شما اضافه شد",
-          icon: "success",
-          buttons: ["تایید", "سبد خرید"],
-        }).then((result) => {
-          if (result) {
-            router.push("/my-account/orders");
-          }
-        });
+        swal
+          .fire({
+            title: "با موفقیت به سبد خرید شما اضافه شد",
+            icon: "success",
+            cancelButtonText: "تایید",
+            showCancelButton: true,
+            confirmButtonText: "سبد خرید",
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              router.push("/my-account/orders");
+            }
+          });
       }
     }
   };

@@ -2,7 +2,7 @@
 import React, { useState, FormEvent } from "react";
 import Header from "@/components/module/Header/Header";
 import Footer from "@/components/module/Footer/Footer";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import apiRequest from "@/Services/Axios/Configs/config";
@@ -33,29 +33,29 @@ const Page: React.FC = () => {
     const user = { email, username: email, password };
 
     if (!email.trim() || !password.trim()) {
-      swal({
+      swal.fire({
         title: "لطفا همه مقادیر را به درستی کامل کنید",
         icon: "error",
-        buttons: "تلاش مجدد",
+        confirmButtonText: "تلاش مجدد",
       });
     } else {
       try {
         const res = await apiRequest.post("/auth/login", user);
 
         if (res.status === 201) {
-          swal({
+          swal.fire({
             title: "با موفقیت وارد شدید",
             icon: "success",
-            buttons: "صفحه اصلی",
+            confirmButtonText: "صفحه اصلی",
           }).then(() => {
-            window.location.replace("/");
+              window.location.replace("/");
           });
         }
       } catch (error) {
-        swal({
+        swal.fire({
           title: "نام کاربری یا رمز عبور اشتباه میباشد !!",
           icon: "error",
-          buttons: "تلاش مجدد",
+          cancelButtonText: "تلاش مجدد",
         });
       }
     }
@@ -77,37 +77,37 @@ const Page: React.FC = () => {
       !emailRegister.trim() ||
       !passwordRegister.trim()
     ) {
-      swal({
+      swal.fire({
         title: "لطفا همه مقادیر را به درستی کامل کنید",
         icon: "error",
-        buttons: "تلاش مجدد",
+        cancelButtonText: "تلاش مجدد",
       });
     } else if (phoneRegister.length > 11 || phoneRegister.length < 1) {
-      swal({
+      swal.fire({
         title: "فیلد شماره تلفن را به درستی  وارد کنید !!",
         text: "مثال : 09123456789",
         icon: "warning",
-        buttons: "تلاش مجدد",
+        cancelButtonText: "تلاش مجدد",
       });
     } else {
       try {
         const res = await apiRequest.post("/auth/register", newUser);
         if (res.status === 201) {
-          swal({
+          swal.fire({
             title: "با موفقیت انجام شدید",
             icon: "success",
-            buttons: "صفحه اصلی",
+            confirmButtonText: "صفحه اصلی",
           }).then(() => {
             window.location.replace("/");
           });
         }
       } catch (error) {
-        swal({
+        swal.fire({
           title:
             "کاربری با این نام کاربری , شماره موبایل , نام یا ایمیل وجود دارد !!",
           icon: "error",
           text: "لطفا از طریق فرم ورود اقدام کنید",
-          buttons: "تلاش مجدد",
+          cancelButtonText: "تلاش مجدد",
         });
       }
     }

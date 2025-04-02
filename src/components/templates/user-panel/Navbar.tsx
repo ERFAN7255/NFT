@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import { RootState, AppDispatch } from "@/Redux/store";
 
 const Navbar: React.FC = () => {
@@ -22,13 +22,16 @@ const Navbar: React.FC = () => {
     const res = await apiRequest.post("/auth/logout");
 
     if (res.status === 201) {
-      swal({
-        title: "با موفقیت خارج شدید",
-        icon: "success",
-        buttons: "تایید",
-      }).then(() => {
-        window.location.replace("/");
-      });
+      swal
+        .fire({
+          title: "با موفقیت خارج شدید",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        })
+        .then(() => {
+          window.location.replace("/");
+        });
     }
   };
 
