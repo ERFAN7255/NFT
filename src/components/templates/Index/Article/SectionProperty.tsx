@@ -1,0 +1,15 @@
+import React, { ReactNode } from "react";
+
+interface SectionPropertyProps {
+  children: ReactNode;
+}
+
+function SectionProperty({ children }: SectionPropertyProps) {
+  return (
+    <div className="w-full lg:w-1/3 mb-14">
+      {children}
+    </div>
+  );
+}
+
+export default SectionProperty;
