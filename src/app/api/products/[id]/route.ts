@@ -1,6 +1,6 @@
 import connectToDB from "../../../../../configs/db";
 import ProductModel from "../../../../../models/Product";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 interface Params {
   params: {
@@ -8,12 +8,16 @@ interface Params {
   };
 }
 
-export async function GET({ params }: Params): Promise<NextResponse> {
+export async function GET(req: NextRequest, { params }: Params): Promise<NextResponse> {
   try {
     await connectToDB();
     const productID = params.id;
 
     const product = await ProductModel.findOne({ _id: productID });
+
+    if (!product) {
+      return NextResponse.json({ message: "Product not found" }, { status: 404 });
+    }
 
     return NextResponse.json(product, { status: 200 });
   } catch (error) {
