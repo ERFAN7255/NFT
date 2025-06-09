@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/templates/user-panel/Navbar";
 import React, { ReactNode } from "react";
 import Header from "@/components/templates/user-panel/Header";
