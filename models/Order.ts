@@ -1,4 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
+import ProductModel from "./Product";
+import UserModal from "./User";
 import { ObjectId } from "mongodb";
 
 interface IOrder extends Document {
