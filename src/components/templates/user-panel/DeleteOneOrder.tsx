@@ -38,7 +38,7 @@ const DeleteOneOrder: React.FC<DeleteOneOrderProps> = ({ productId }) => {
                 icon: "success",
                 confirmButtonText: "تایید",
               }).then(() => {
-                router.refresh();
+                window.location.reload();
               });
             }
           });
