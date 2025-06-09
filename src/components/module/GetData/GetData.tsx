@@ -1,8 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  getUserInfo, UserOrders } from "@/Redux/Slices/userSlice";
+import { getUserInfo, UserOrders } from "@/Redux/Slices/userSlice";
 import { RootState, AppDispatch } from "@/Redux/store";
 
 const GetData: React.FC = () => {
@@ -11,13 +10,10 @@ const GetData: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUserInfo());
-  }, [dispatch]);
-
-  useEffect(() => {
     if (user?.id) {
       dispatch(UserOrders(user.id));
     }
-  }, [user?.id, dispatch]);
+  }, [dispatch, user.id]);
 
   return null;
 };

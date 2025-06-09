@@ -5,10 +5,6 @@ import { RootState } from "@/Redux/store";
 
 const Page: React.FC = () => {
   const user = useSelector((state: RootState) => state.user.user);
-  const [phone, setPhone] = useState<string>(user.phone ?? "");
-  const [name, setName] = useState<string>(user.name ?? "");
-  const [username, setUsername] = useState<string>(user.username ?? "");
-  const [email, setEmail] = useState<string>(user.email ?? "");
 
   return (
     <>
@@ -26,8 +22,7 @@ const Page: React.FC = () => {
               <input
                 type="text"
                 className="bg-gray-600 rounded-xl p-2 text-white text-end overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                value={user.phone!}
               />
             </div>
             <div className="w-full flex flex-col gap-3 mb-4">
@@ -35,8 +30,7 @@ const Page: React.FC = () => {
               <input
                 type="text"
                 className="bg-gray-600 rounded-xl p-2 text-white text-start overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={user.name!}
               />
             </div>
             <div className="w-full flex flex-col gap-3 mb-4">
@@ -44,8 +38,7 @@ const Page: React.FC = () => {
               <input
                 type="text"
                 className="bg-gray-600 rounded-xl p-2 text-white text-start overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={user.username!}
               />
             </div>
             <div className="w-full flex flex-col gap-3 mb-4">
@@ -53,8 +46,7 @@ const Page: React.FC = () => {
               <input
                 type="email"
                 className="bg-gray-600 rounded-xl p-2 text-white text-start overflow-hidden scroll-m-0 px-5 focus-within:outline-none"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={user.email!}
               />
             </div>
             <button className="bg-purple-700 py-3 text-xl rounded-xl w-full text-white">

@@ -1,3 +1,4 @@
+"use client";
 import { showNavbar } from "@/Redux/Slices/iShowUserPanelNavbar";
 import Image from "next/image";
 import React from "react";
