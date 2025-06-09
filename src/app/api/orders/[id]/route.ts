@@ -1,5 +1,6 @@
 import connectToDB from "../../../../../configs/db";
 import OrderModel from "../../../../../models/Order";
+import ProductModel from "../../../../../models/Product";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Params {
@@ -8,7 +9,10 @@ interface Params {
   };
 }
 
-export async function GET(req: NextRequest, { params }: Params): Promise<NextResponse> {
+export async function GET(
+  req: NextRequest,
+  { params }: Params
+): Promise<NextResponse> {
   try {
     await connectToDB();
     const userID = params.id;
@@ -20,7 +24,10 @@ export async function GET(req: NextRequest, { params }: Params): Promise<NextRes
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: Params): Promise<NextResponse> {
+export async function DELETE(
+  req: NextRequest,
+  { params }: Params
+): Promise<NextResponse> {
   try {
     await connectToDB();
     const body = await req.json();

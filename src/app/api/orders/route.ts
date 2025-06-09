@@ -1,4 +1,5 @@
 import OrderModel from "../../../../models/Order";
+import ProductModel from "../../../../models/Product";
 import connectToDB from "../../../../configs/db";
 import { NextRequest, NextResponse } from "next/server";
 
