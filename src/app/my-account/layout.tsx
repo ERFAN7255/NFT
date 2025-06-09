@@ -14,6 +14,7 @@ const Page: React.FC<LayoutProps> = ({ children }) => {
       <div className="md:flex md:justify-end">
         <div className="md:flex md:flex-col md:w-2/3 xl:w-4/5">
           <Header />
+          <GetData />
           {children}
         </div>
       </div>
