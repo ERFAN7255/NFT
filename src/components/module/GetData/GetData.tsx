@@ -10,13 +10,10 @@ const GetData: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUserInfo());
-  }, [dispatch]);
-
-  useEffect(() => {
     if (user?.id) {
       dispatch(UserOrders(user.id));
     }
-  }, [user?.id, dispatch]);
+  }, [dispatch, user.id]);
 
   return null;
 };
