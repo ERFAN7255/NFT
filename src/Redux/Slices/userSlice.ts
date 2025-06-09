@@ -32,7 +32,9 @@ interface UserState {
 export const getUserInfo = createAsyncThunk<User, void>(
   "users/getUserInfo",
   async () => {
-    return fetch("/api/auth/me")
+    return fetch("/api/auth/me", {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .catch((data) => data);
   }
@@ -41,7 +43,9 @@ export const getUserInfo = createAsyncThunk<User, void>(
 export const UserOrders = createAsyncThunk<Order[], string>(
   "orders/UserOrders",
   async (userId) => {
-    return fetch(`/api/orders/${userId}`)
+    return fetch(`/api/orders/${userId}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => data);
   }
