@@ -33,28 +33,39 @@ const Page: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {user?.orders.map(({ product }: { product: { _id: string; img: string; name: string; price: number } }) => (
-                <tr key={product._id}>
-                  <td className="border-2 border-purple-600 p-2 md:p-2">
-                    <Image
-                      src={product?.img}
-                      width={200}
-                      height={200}
-                      className="w-14 m-auto md:w-20"
-                      alt={product?.name}
-                    />
-                  </td>
-                  <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-2 md:p-3 text-center text-blue-400">
-                    {product?.name}
-                  </td>
-                  <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 px-2 py-6 md:p-3 text-center text-green-400">
-                    {product?.price} Eth
-                  </td>
-                  <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-0 text-center">
-                    <DeleteOneOrder productId={product?._id} />
-                  </td>
-                </tr>
-              ))}
+              {user.orders.map(
+                ({
+                  product,
+                }: {
+                  product: {
+                    _id: string;
+                    img: string;
+                    name: string;
+                    price: number;
+                  };
+                }) => (
+                  <tr key={product._id}>
+                    <td className="border-2 border-purple-600 p-2 md:p-2">
+                      <Image
+                        src={product?.img}
+                        width={200}
+                        height={200}
+                        className="w-14 m-auto md:w-20"
+                        alt={product?.name}
+                      />
+                    </td>
+                    <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-2 md:p-3 text-center text-blue-400">
+                      {product?.name}
+                    </td>
+                    <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 px-2 py-6 md:p-3 text-center text-green-400">
+                      {product?.price} Eth
+                    </td>
+                    <td className="border-2 lg:text-xl xl:text-2xl border-purple-600 p-0 text-center">
+                      <DeleteOneOrder productId={product?._id} />
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
 

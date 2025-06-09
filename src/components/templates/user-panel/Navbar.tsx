@@ -12,11 +12,11 @@ import { RootState, AppDispatch } from "@/Redux/store";
 
 const Navbar: React.FC = () => {
   const user = useSelector((state: RootState) => state.user.user);
+  const router = useRouter();
   const isShowNavbar = useSelector(
     (state: RootState) => state.isShowUserPanelNavbar.isShowNavbar
   );
   const dispatch: AppDispatch = useDispatch();
-  const router = useRouter();
 
   const logoutUser = async () => {
     const res = await apiRequest.post("/auth/logout");
@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           showConfirmButton: false,
         })
         .then(() => {
-          window.location.replace("/");
+          router.replace("/");
         });
     }
   };
