@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
+import ProductModel from "./Product";
 
 interface IUser extends Document {
   name: string;
